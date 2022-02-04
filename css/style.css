@@ -1,0 +1,21 @@
+header > h1, footer > p{
+    font-size: xx-large;
+}
+
+article > header > img, aside > section > ul > li > img{
+    max-height: 100px;
+}
+
+a:hover {
+    background-color: darkblue !important;
+    color: darkcyan !important;
+}
+
+footer > a:hover {
+    background-color: bisque !important;
+    color: black !important;
+}
+
+a {
+    text-decoration: none !important;
+}
