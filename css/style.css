@@ -34,3 +34,7 @@ form > ul > li > div > div > img{
     height: 100px;
     width: 100px;
 }
+
+label:first-child, fieldset > label {
+    font-weight: bolder;
+}
