@@ -38,3 +38,7 @@ form > ul > li > div > div > img, img#foto-prodotto {
 label:first-child, fieldset > label, li#stato-prodotto {
     font-weight: bolder;
 }
+
+table {
+    border-style: solid;
+}
