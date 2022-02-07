@@ -11,7 +11,7 @@ a:hover {
     color: darkcyan !important;
 }
 
-footer > a:hover, input[type="submit"]:hover {
+footer > a:hover, input[type="submit"]:hover, div > a:hover {
     background-color: bisque !important;
     color: black !important;
 }
@@ -24,17 +24,17 @@ img#img-prodotto {
     width: 100%;
 }
 
-form > ul {
+form > ul, div > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-form > ul > li > div > div > img{
+form > ul > li > div > div > img, img#foto-prodotto {
     height: 100px;
     width: 100px;
 }
 
-label:first-child, fieldset > label {
+label:first-child, fieldset > label, li#stato-prodotto {
     font-weight: bolder;
 }
