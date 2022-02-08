@@ -87,7 +87,7 @@ CREATE TABLE `ordine` (
 
 CREATE TABLE `prodotto` (
   `ID_venditore` int(11) NOT NULL,
-  `nome` varchar(20) NOT NULL,
+  `nome` varchar(100) NOT NULL,
   `immagine` blob NOT NULL,
   `quantitàDisponibile` int(11) NOT NULL,
   `tipoDisponibilità` enum('Immediata','5 giorni','10 giorni','1 mese') NOT NULL,
