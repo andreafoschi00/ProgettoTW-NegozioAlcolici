@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 05, 2022 alle 17:34
+-- Creato il: Feb 08, 2022 alle 23:46
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `cliente` (
   `nome` varchar(20) NOT NULL,
   `cognome` varchar(20) NOT NULL,
   `dataNascita` date NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -86,9 +86,10 @@ CREATE TABLE `ordine` (
 --
 
 CREATE TABLE `prodotto` (
+  `ID` int(11) NOT NULL,
   `ID_venditore` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `immagine` blob NOT NULL,
+  `nomeImmagine` varchar(30) NOT NULL,
   `quantitàDisponibile` int(11) NOT NULL,
   `tipoDisponibilità` enum('Immediata','5 giorni','10 giorni','1 mese') NOT NULL,
   `prezzoUnitario` float NOT NULL,
@@ -107,8 +108,8 @@ CREATE TABLE `prodotto` (
 
 CREATE TABLE `prodotto_in_ordine` (
   `quantitàAcquistata` int(11) NOT NULL,
-  `nomeProdotto` varchar(20) NOT NULL,
-  `ID_ordine` int(11) NOT NULL
+  `ID_ordine` int(11) NOT NULL,
+  `ID_prodotto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -162,7 +163,7 @@ ALTER TABLE `ordine`
 -- Indici per le tabelle `prodotto`
 --
 ALTER TABLE `prodotto`
-  ADD PRIMARY KEY (`nome`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `FKinserisce` (`ID_venditore`),
   ADD KEY `FKappartiene` (`ID_categoria`);
 
@@ -170,8 +171,9 @@ ALTER TABLE `prodotto`
 -- Indici per le tabelle `prodotto_in_ordine`
 --
 ALTER TABLE `prodotto_in_ordine`
-  ADD PRIMARY KEY (`nomeProdotto`,`ID_ordine`),
-  ADD KEY `FKR_1` (`ID_ordine`);
+  ADD PRIMARY KEY (`ID_ordine`,`ID_prodotto`),
+  ADD UNIQUE KEY `ID_ordine` (`ID_ordine`),
+  ADD KEY `ID_prodotto` (`ID_prodotto`);
 
 --
 -- Indici per le tabelle `venditore`
@@ -209,6 +211,12 @@ ALTER TABLE `ordine`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT per la tabella `prodotto`
+--
+ALTER TABLE `prodotto`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT per la tabella `venditore`
 --
 ALTER TABLE `venditore`
@@ -242,8 +250,8 @@ ALTER TABLE `prodotto`
 -- Limiti per la tabella `prodotto_in_ordine`
 --
 ALTER TABLE `prodotto_in_ordine`
-  ADD CONSTRAINT `FKR` FOREIGN KEY (`nomeProdotto`) REFERENCES `prodotto` (`nome`),
-  ADD CONSTRAINT `FKR_1` FOREIGN KEY (`ID_ordine`) REFERENCES `ordine` (`ID`);
+  ADD CONSTRAINT `prodotto_in_ordine_ibfk_1` FOREIGN KEY (`ID_ordine`) REFERENCES `ordine` (`ID`),
+  ADD CONSTRAINT `prodotto_in_ordine_ibfk_2` FOREIGN KEY (`ID_prodotto`) REFERENCES `prodotto` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
