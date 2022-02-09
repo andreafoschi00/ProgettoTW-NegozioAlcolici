@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <title>Home - Negozio Alcolici</title>
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href=<?php echo UPLOAD_DIR."favicon.ico"?>>
     <meta charset="utf-8"/>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -88,7 +88,7 @@
                             <p class="mx-1"><?php echo $prodottoCasuale["testoBreve"];?></p>
                             <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.php?id=<?php echo $prodottoCasuale["ID"];?>">Mostra</a>
                         </li>
-                        <?php endforeach;?>
+                    <?php endforeach;?>
                     </ul>
                 </section>
                 <section>

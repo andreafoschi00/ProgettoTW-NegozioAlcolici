@@ -113,7 +113,59 @@
             $stmt->bind_param('s',$username);
             $stmt->execute();
             $result = $stmt->get_result();
-    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getProductsWithFilters($categorie, $filtro) {
+            $query = "";
+            switch($filtro) {
+                case "piurecenti" :
+                    $query = "SELECT prodotto.ID as IDprodotto, quantitàDisponibile, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                            FROM prodotto, venditore, categoria
+                            WHERE venditore.ID = prodotto.ID_venditore
+                            AND prodotto.ID_categoria = categoria.ID
+                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            ORDER BY prodotto.dataInserimento DESC";
+                    break;
+                case "menorecenti" :
+                    $query = "SELECT prodotto.ID as IDprodotto, quantitàDisponibile, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                            FROM prodotto, venditore, categoria
+                            WHERE venditore.ID = prodotto.ID_venditore
+                            AND prodotto.ID_categoria = categoria.ID
+                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            ORDER BY prodotto.dataInserimento";
+                    break;
+                case "alfabetico" :
+                    $query = "SELECT prodotto.ID as IDprodotto, quantitàDisponibile, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                            FROM prodotto, venditore, categoria
+                            WHERE venditore.ID = prodotto.ID_venditore
+                            AND prodotto.ID_categoria = categoria.ID
+                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            ORDER BY nomeProdotto";
+                    break;
+                case "moltidisponibili" :
+                    $query = "SELECT prodotto.ID as IDprodotto, quantitàDisponibile, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                            FROM prodotto, venditore, categoria
+                            WHERE venditore.ID = prodotto.ID_venditore
+                            AND prodotto.ID_categoria = categoria.ID
+                            AND prodotto.quantitàDisponibile >= 25
+                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            ORDER BY prodotto.quantitàDisponibile DESC";
+                    break;
+                case "pochidisponibili" :
+                    $query = "SELECT prodotto.ID as IDprodotto, quantitàDisponibile, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                            FROM prodotto, venditore, categoria
+                            WHERE venditore.ID = prodotto.ID_venditore
+                            AND prodotto.ID_categoria = categoria.ID
+                            AND prodotto.quantitàDisponibile < 10
+                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            ORDER BY prodotto.quantitàDisponibile DESC";
+                    break;
+            }
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sssssss', ...$categorie);
+            $stmt->execute();
+            $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
         }
     }
