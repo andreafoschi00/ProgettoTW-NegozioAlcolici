@@ -24,13 +24,13 @@
         <div class="col-12 col-md-10">
             <ul class="nav nav-pills">
                 <li class="nav-item col-6 col-md-3">
-                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="index.html">Home</a>
+                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="index.php">Home</a>
                 </li>
                 <li class="nav-item col-6 col-md-3">
-                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.html">Catalogo</a>
+                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.php">Catalogo</a>
                 </li>
                 <li class="nav-item col-6 col-md-3">
-                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="carrello.html">Carrello</a>
+                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="carrello.php">Carrello</a>
                 </li>
                 <li class="nav-item col-6 col-md-3">
                     <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.php">Login</a>
@@ -53,7 +53,7 @@
                 <div class="articles">
                     <article class="bg-info bg-opacity-10 border mt-4 mb-4">
                         <header>
-                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"]; ?>" alt="<?php echo $prodotto["nomeProdotto"]; ?>n"/>
+                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>n"/>
                             <h3 class="px-5"><?php echo $prodotto["nomeProdotto"]; ?></h3>
                             <p class="px-5"><?php echo $prodotto["dataInserimento"]; ?> - <?php echo $prodotto["cognomeVenditore"]; ?> <?php echo $prodotto["nomeVenditore"]; ?></p>
                         </header>
@@ -61,7 +61,7 @@
                             <p><?php echo $prodotto["testoMedio"];?></p>
                         </section>
                         <footer class="pb-4 px-5">
-                            <a class="btn btn-light" href="prodotto.html">Mostra tutto</a>
+                            <a class="btn btn-light" href="prodotto.php?id=<?php echo $prodotto["IDprodotto"];?>">Mostra tutto</a>
                         </footer>
                     </article>
                 </div>
