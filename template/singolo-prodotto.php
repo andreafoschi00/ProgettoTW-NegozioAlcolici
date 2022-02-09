@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css" >
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<script src="./js/functions.js" type="text/javascript"></script>
+	<script src="./js/prodotto.js" type="text/javascript"></script>
 </head>
 <body class="bg-primary bg-opacity-10">
 <div class="container-fluid p-0 overflow-hidden">
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-6 col-md-6">
                                 <div class="row">
-                                    <p class="text-success">Quantità disponibile: <?php echo $prodotto["quantitàDisponibile"];?></p>
+                                    <p id="quantita">Quantità disponibile: <?php echo $prodotto["quantitàDisponibile"];?></p>
                                 </div>
                                 <div class="row">
                                     <p class="text-black">Prezzo: <?php echo $prodotto["prezzoUnitario"];?>€</p>
