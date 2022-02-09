@@ -49,5 +49,15 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function checkLogin($username, $password){
+            $query = "SELECT email FROM cliente WHERE email = ? AND password = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',$username, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
