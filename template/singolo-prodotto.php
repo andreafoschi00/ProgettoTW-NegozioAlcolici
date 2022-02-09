@@ -113,7 +113,7 @@
                     <h2>Categorie</h2>
                     <ul class="nav flex-column">
                         <?php foreach($templateParams["categorie"] as $categoria):?>
-                            <li class="nav-item"><a href="#"><?php echo $categoria["nome"];?></a></li>
+                            <li class="nav-item"><a href="prodotti-categoria.php?id=<?php echo $categoria["ID"];?>"><?php echo $categoria["nome"];?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </section>

@@ -42,7 +42,7 @@
         }
 
         public function getCategories() {
-            $stmt = $this->db->prepare("SELECT nome
+            $stmt = $this->db->prepare("SELECT ID, nome
                                         FROM categoria");
             $stmt->execute();
             $result = $stmt->get_result();
@@ -66,6 +66,30 @@
             $query = "SELECT email FROM cliente WHERE email = ? AND password = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('ss',$username, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getCategoryById($idcategoria) {
+            $stmt = $this->db->prepare("SELECT nome 
+                                        FROM categoria 
+                                        WHERE ID = ?");
+            $stmt->bind_param("i", $idcategoria);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getProductsByCategory($idcategoria) {
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                                        FROM prodotto, venditore
+                                        WHERE venditore.ID = prodotto.ID_venditore
+                                        AND prodotto.ID_categoria = ?
+                                        ORDER BY prodotto.dataInserimento DESC");
+            $stmt->bind_param("i", $idcategoria);
             $stmt->execute();
             $result = $stmt->get_result();
     
