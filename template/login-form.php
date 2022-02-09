@@ -22,16 +22,16 @@
             <div class="col-12 col-md-10">
                 <ul class="nav nav-pills">
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="index.html">Home</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="index.php">Home</a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.html">Catalogo</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.php">Catalogo</a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="carrello.html">Carrello</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="carrello.php">Carrello</a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.html">Login</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.php">Login</a>
                     </li>
                 </ul> 
             </div>
