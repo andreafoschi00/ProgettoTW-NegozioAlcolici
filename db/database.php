@@ -30,7 +30,7 @@
         }
 
         public function getRandomProducts($n) {
-            $stmt = $this->db->prepare("SELECT nomeImmagine, nome, testoBreve 
+            $stmt = $this->db->prepare("SELECT nomeImmagine, nome, testoBreve, ID 
                                         FROM prodotto 
                                         ORDER BY RAND() 
                                         LIMIT ?");

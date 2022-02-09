@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css" >
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<script src="./js/functions.js" type="text/javascript"></script>
+	<script src="./js/home.js" type="text/javascript"></script>
 </head>
 <body class="bg-primary bg-opacity-10">
 <div class="container-fluid p-0 overflow-hidden">
@@ -86,7 +86,7 @@
                             <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="<?php echo $prodottoCasuale["nome"];?>"/>
                             <h3 class="mx-1"><?php echo $prodottoCasuale["nome"];?></h3>
                             <p class="mx-1"><?php echo $prodottoCasuale["testoBreve"];?></p>
-                            <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.html">Mostra</a>
+                            <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.php?id=<?php echo $prodottoCasuale["ID"];?>">Mostra</a>
                         </li>
                         <?php endforeach;?>
                     </ul>

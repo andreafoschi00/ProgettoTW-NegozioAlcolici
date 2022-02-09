@@ -104,7 +104,7 @@
                             <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="<?php echo $prodottoCasuale["nome"];?>"/>
                             <h3 class="mx-1"><?php echo $prodottoCasuale["nome"];?></h3>
                             <p class="mx-1"><?php echo $prodottoCasuale["testoBreve"];?></p>
-                            <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.html">Mostra</a>
+                            <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.php?id=<?php echo $prodottoCasuale["ID"];?>">Mostra</a>
                         </li>
                         <?php endforeach;?>
                     </ul>
