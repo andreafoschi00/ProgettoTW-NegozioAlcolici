@@ -19,7 +19,7 @@
         }
 
         public function getLatestProducts() {
-            $stmt = $this->db->prepare("SELECT prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
                                         FROM prodotto, venditore
                                         WHERE venditore.ID = prodotto.ID_venditore
                                         ORDER BY prodotto.dataInserimento DESC");
@@ -44,6 +44,18 @@
         public function getCategories() {
             $stmt = $this->db->prepare("SELECT nome
                                         FROM categoria");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getProductByID($idProdotto) {
+            $stmt = $this->db->prepare("SELECT prodotto.nome as nomeProdotto, nomeImmagine, testoLungo, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore, quantitàDisponibile, prezzoUnitario
+                                        FROM prodotto, venditore
+                                        WHERE venditore.ID = prodotto.ID_venditore
+                                        AND prodotto.ID = ?");
+            $stmt->bind_param('i',$idProdotto);
             $stmt->execute();
             $result = $stmt->get_result();
 
