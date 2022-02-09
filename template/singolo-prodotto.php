@@ -68,7 +68,7 @@
                                         <p><label for="quantity">Quantità desiderata:</label></p>
                                     </div>
                                     <div class="col-2 col-md-2">
-                                        <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $prodotto["quantitàDisponibile"];?>">
+                                        <input type="number" id="quantity" name="quantity" min="0" max="<?php echo $prodotto["quantitàDisponibile"];?>">
                                     </div>
                                     <div class="col-3 col-md-3"></div>
                                 </div>
