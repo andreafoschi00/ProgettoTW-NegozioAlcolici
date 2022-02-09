@@ -33,7 +33,7 @@
                     <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="carrello.html">Carrello</a>
                 </li>
                 <li class="nav-item col-6 col-md-3">
-                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.html">Login</a>
+                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.php">Login</a>
                 </li>
             </ul> 
         </div>
