@@ -30,7 +30,7 @@ form > ul, div > ul {
     padding: 0;
 }
 
-form > ul > li > div > div > img, li > div > div > img {
+form > ul > li > div > div > img, li > div > div > img, img#resize{
     height: 100px;
     width: 100px;
 }
