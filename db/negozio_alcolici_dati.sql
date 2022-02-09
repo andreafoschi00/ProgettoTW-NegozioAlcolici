@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 08, 2022 alle 23:48
+-- Creato il: Feb 09, 2022 alle 15:39
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `negozio_alcolici_tw`
 --
-CREATE DATABASE IF NOT EXISTS `negozio_alcolici_tw` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `negozio_alcolici_tw`;
 
 --
 -- Dump dei dati per la tabella `categoria`
@@ -41,8 +39,8 @@ INSERT INTO `categoria` (`ID`, `nome`) VALUES
 --
 
 INSERT INTO `cliente` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `password`) VALUES
-(1, 'Mario', 'Rossi', '2000-05-04', 'mario.rossi@twalcolici.it', '$2y$10$0ugP.J7iMDUSK9LvEDpFhuK2nt.DJHWCDhe6VOsooxEIm2IEJuDYu'),
-(2, 'Filippo', 'Verdi', '1999-11-13', 'filippo.verdi@twalcolici.it', '$2y$10$T7mXRDJU.RRrbky5Wt3bluFiZfRupFisRIW4bHhUads5MhIZueIq2');
+(1, 'Mario', 'Rossi', '2000-05-04', 'mario.rossi@twalcolici.it', '$2y$10$0PB.LkwaFGmeCcniJGRrhOT58yFdYkWLtLONbvCnrW/fkiZOWa/Kq'),
+(2, 'Filippo', 'Verdi', '1999-11-13', 'filippo.verdi@twalcolici.it', '$2y$10$QmLm7645vIMHPD7qRd4KguQ4ccU9hVeTvCTpc6kjWkxc3TbYCMPmi');
 
 --
 -- Dump dei dati per la tabella `prodotto`
@@ -90,9 +88,9 @@ INSERT INTO `prodotto` (`ID`, `ID_venditore`, `nome`, `nomeImmagine`, `quantità
 --
 
 INSERT INTO `venditore` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `password`) VALUES
-(1, 'Andrea', 'Foschi', '2000-04-20', 'andrea.foschi13@studio.unibo.it', '$2y$10$Vz.V0GLoeGftHN1zYxwnwO0LhT57hoAL/8IkyPDauSw2fsWU6w5GS'),
-(2, 'Atanasov', 'Atanas Todorov', '2000-12-06', 'atanastodor.atanasov@studio.unibo.it', '$2y$10$pJUGZzAujgei.0Dgu0VZ.e8XenPUH7gixYBzqF92RKJUYdilC40Iq'),
-(3, 'Admin', 'Admin', '2021-12-31', 'admin@twalcolici.it', '$2y$10$sr4X3m/0Fah//9Dfl1Gnle5Lx6PMTUq3L2mx6NQteH1Fp9Z3dASoG');
+(1, 'Andrea', 'Foschi', '2000-04-20', 'andrea.foschi13@studio.unibo.it', '$2y$10$5oSxen6di4a/NGSfgXeBWOnNvPH3JxxpZH1DqSi7uz56QetqT7ogG'),
+(2, 'Atanasov', 'Atanas Todorov', '2000-12-06', 'atanastodor.atanasov@studio.unibo.it', '$2y$10$p/AFQLb10EVsqOmghtxLdOxoK5uhNY36FVfXGX2keeVTQ3QmWLk4m'),
+(3, 'Admin', 'Admin', '2021-12-31', 'admin@twalcolici.it', '$2y$10$5BH0WU/2ioJeX3JNHjOA5.hoZzKbNBcZZpRFn/7nj02CAnR.3KkNq');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
