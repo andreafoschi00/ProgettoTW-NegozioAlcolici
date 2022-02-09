@@ -106,5 +106,15 @@
     
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function checkCliente($username, $password){
+            $query = "SELECT email, `password` FROM cliente WHERE email = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s',$username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
