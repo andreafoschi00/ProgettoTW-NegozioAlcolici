@@ -117,6 +117,8 @@
         }
 
         public function getProductsWithFilters($categorie, $filtro) {
+            $count = str_repeat("?,", count($categorie)-1)."?";
+            $types = str_repeat("s", count($categorie));
             $query = "";
             switch($filtro) {
                 case "piurecenti" :
@@ -124,7 +126,7 @@
                             FROM prodotto, venditore, categoria
                             WHERE venditore.ID = prodotto.ID_venditore
                             AND prodotto.ID_categoria = categoria.ID
-                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            AND categoria.nome IN ($count)
                             ORDER BY prodotto.dataInserimento DESC";
                     break;
                 case "menorecenti" :
@@ -132,7 +134,7 @@
                             FROM prodotto, venditore, categoria
                             WHERE venditore.ID = prodotto.ID_venditore
                             AND prodotto.ID_categoria = categoria.ID
-                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            AND categoria.nome IN ($count)
                             ORDER BY prodotto.dataInserimento";
                     break;
                 case "alfabetico" :
@@ -140,7 +142,7 @@
                             FROM prodotto, venditore, categoria
                             WHERE venditore.ID = prodotto.ID_venditore
                             AND prodotto.ID_categoria = categoria.ID
-                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            AND categoria.nome IN ($count)
                             ORDER BY nomeProdotto";
                     break;
                 case "moltidisponibili" :
@@ -148,8 +150,8 @@
                             FROM prodotto, venditore, categoria
                             WHERE venditore.ID = prodotto.ID_venditore
                             AND prodotto.ID_categoria = categoria.ID
-                            AND prodotto.quantitàDisponibile >= 25
-                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            AND prodotto.quantitàDisponibile >= 20
+                            AND categoria.nome IN ($count)
                             ORDER BY prodotto.quantitàDisponibile DESC";
                     break;
                 case "pochidisponibili" :
@@ -158,7 +160,7 @@
                             WHERE venditore.ID = prodotto.ID_venditore
                             AND prodotto.ID_categoria = categoria.ID
                             AND prodotto.quantitàDisponibile < 10
-                            AND categoria.nome IN (?, ?, ?, ?, ?, ?, ?)
+                            AND categoria.nome IN ($count)
                             ORDER BY prodotto.quantitàDisponibile DESC";
                     break;
             }
