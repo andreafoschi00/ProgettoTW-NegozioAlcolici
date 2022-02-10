@@ -50,44 +50,39 @@
             <div class="col-md-1"></div>
             <?php foreach($templateParams["prodotto"] as $prodotto):?>
                 <div class="col-12 col-md-6">
-                <article class="bg-info bg-opacity-10 border mt-4 mb-4">
-                    <header>
-                        <div class="row">
-                            <div class="col-6 col-md-6">
-                                <img id="img-prodotto" class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>"/>
+                    <article class="bg-info bg-opacity-10 border mt-4 mb-4">
+                        <header>
+                            <div class="row">
+                                <div class="col-6 col-md-6">
+                                    <img id="img-prodotto" class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>"/>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <div class="row">
+                                        <p id="quantita">Quantità disponibile: <?php echo $prodotto["quantitàDisponibile"];?></p>
+                                    </div>
+                                    <div class="row">
+                                        <p id="prezzo" class="text-black">Prezzo: <?php echo $prodotto["prezzoUnitario"];?>€</p>
+                                    </div>
+                                    <div class="row">
+                                        <form action="carrello.php" method="GET">
+                                            <label for="quantità">Quantità desiderata:</label>
+                                            <input class="my-1 mx-3" type="number" id="quantità" name="quantità" min="1" max="<?php echo $prodotto["quantitàDisponibile"];?>" required>
+                                            <input class="my-1" type="text" id="id-buffer" name="id" hidden/>
+                                            <input type="submit" class="btn btn-light my-1 <?php if($prodotto["quantitàDisponibile"] == 0) echo "disabled";?>" value="Aggiungi al carrello"/>
+                                        </form>
+                                    </div>
+                                    <br>
+                                </div>
+                            <div class="row">
+                                <h3 id="titleid" class="px-5"><?php echo $prodotto["nomeProdotto"];?> - ID prodotto: <?php echo $prodotto["IDprodotto"];?></h3>
+                                <p class="px-5"><?php echo $prodotto["dataInserimento"];?> - <?php echo $prodotto["cognomeVenditore"];?> <?php echo $prodotto["nomeVenditore"];?></p>
                             </div>
-                            <div class="col-6 col-md-6">
-                                <div class="row">
-                                    <p id="quantita">Quantità disponibile: <?php echo $prodotto["quantitàDisponibile"];?></p>
-                                </div>
-                                <div class="row">
-                                    <p class="text-black">Prezzo: <?php echo $prodotto["prezzoUnitario"];?>€</p>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6">
-                                        <p><label for="quantity">Quantità desiderata:</label></p>
-                                    </div>
-                                    <div class="col-2 col-md-2">
-                                        <input type="number" id="quantity" name="quantity" min="0" max="<?php echo $prodotto["quantitàDisponibile"];?>">
-                                    </div>
-                                    <div class="col-3 col-md-3"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 col-md-4">
-                                        <input class="btn btn-light" type="submit" value="Aggiungi al carrello">
-                                    </div>
-                                    <div class="col-8 col-md-8"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="px-5"><?php echo $prodotto["nomeProdotto"];?></h3>
-                        <p class="px-5"><?php echo $prodotto["dataInserimento"];?> - <?php echo $prodotto["cognomeVenditore"];?> <?php echo $prodotto["nomeVenditore"];?></p>
-                    </header>
-                    <section class="px-5">
-                        <p><?php echo $prodotto["testoLungo"];?></p>
-                    </section>
-                </article>
-            </div>
+                        </header>
+                        <section class="px-5">
+                            <p><?php echo $prodotto["testoLungo"];?></p>
+                        </section>
+                    </article>
+                </div>
             <?php endforeach;?>
             <div class="col-12 col-md-4">
             <aside class="bg-info bg-opacity-10 border mt-4 px-5 py-3">

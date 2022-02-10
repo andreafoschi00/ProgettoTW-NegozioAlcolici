@@ -1,17 +1,27 @@
 $(document).ready(function() {
-    const oggeto = $("#quantita").text();
-    const stringa = oggeto.split(": ");
-    const elemento = stringa[1];
-    const valore = parseInt(elemento);
+    const quantitàDisponibile = parseInt($("#quantita").text().split(": ")[1]);
+    const prezzo = parseFloat($("#prezzo").text().split(": ")[1]);
+    $("#prezzo").text("Prezzo: " + prezzo.toFixed(2) + "€");
 
     switch(true) {
-        case valore==0:
+        case quantitàDisponibile==0:
             $("#quantita").css("color", "red");
         break;
-        case valore>0 && valore<10:
+        case quantitàDisponibile>0 && quantitàDisponibile<10:
             $("#quantita").css("color", "orange");
         break;
         default:
             $("#quantita").css("color", "green");
     }
+
+    $("#quantità").focusout(function(){
+        const quantitàSelezionata = $("#quantità").val();
+        $("#prezzo").text("Prezzo: "+(prezzo*quantitàSelezionata).toFixed(2)+"€");
+        const id = parseInt($("#titleid").text().split(": ")[1]);
+        $("#id-buffer").val(id);
+    });
+
+    $("#quantità").keypress(function(evt) {
+        evt.preventDefault();
+    });
 });

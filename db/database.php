@@ -51,7 +51,7 @@
         }
 
         public function getProductByID($idProdotto) {
-            $stmt = $this->db->prepare("SELECT prodotto.nome as nomeProdotto, nomeImmagine, testoLungo, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore, quantitàDisponibile, prezzoUnitario
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, testoLungo, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore, quantitàDisponibile, prezzoUnitario
                                         FROM prodotto, venditore
                                         WHERE venditore.ID = prodotto.ID_venditore
                                         AND prodotto.ID = ?");
@@ -166,6 +166,19 @@
             $stmt->bind_param('sssssss', ...$categorie);
             $stmt->execute();
             $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getProductsFromID($ids) {
+            $count = str_repeat("?,", count($ids)-1)."?";
+            $types = str_repeat("i", count($ids));
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, dataInserimento, quantitàDisponibile, prezzoUnitario
+                                        FROM prodotto
+                                        WHERE prodotto.ID in ($count)");
+            $stmt->bind_param($types, ...$ids);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
             return $result->fetch_all(MYSQLI_ASSOC);
         }
     }

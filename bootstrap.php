@@ -4,4 +4,7 @@
     require_once("db/database.php");
     require_once("utils/functions.php");
     $dbh = new DatabaseHelper("localhost", "root", "", "negozio_alcolici_tw", 3306);
+    if(!isset($_SESSION["carrello"])) {
+        $_SESSION["carrello"] = array();
+    }
 ?>

@@ -53,7 +53,7 @@
                 <div class="articles">
                     <article class="bg-info bg-opacity-10 border mt-4 mb-4">
                         <header>
-                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>n"/>
+                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>"/>
                             <h3 class="px-5"><?php echo $prodotto["nomeProdotto"]; ?></h3>
                             <p class="px-5"><?php echo $prodotto["dataInserimento"]; ?> - <?php echo $prodotto["cognomeVenditore"]; ?> <?php echo $prodotto["nomeVenditore"]; ?></p>
                         </header>
