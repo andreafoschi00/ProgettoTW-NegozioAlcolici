@@ -47,16 +47,15 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-6">
-                <form action="#" method="GET">
                     <ul>
                     <?php foreach($templateParams["prodottiNelCarrello"] as $prodotto):?>
                         <li class="bg-info bg-opacity-10 border mt-4 mb-4 pt-3 pb-1">
-                            <div class="row">
-                                <div class="col-3 col-md-2">
-                                    <input type="checkbox">
+                            <div class="row col-12">
+                                <div class="col-3 col-md-2 ms-2 py-2">
                                     <img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>" >
                                 </div>
-                                <div class="col-8 col-md-5">
+                                <div class="col-md-2"></div>
+                                <div class="col-9 col-md-7">
                                     <label><?php echo $prodotto["nomeProdotto"];?></label>
                                 </br>
                                     <label>Quantità: <?php foreach($_SESSION["carrello"] as $prodotto2) {
@@ -67,7 +66,7 @@
                                     <label>|</label>
                                     <input type="button" value="Rimuovi" class="btn btn-light">
                                 </br>
-                                    <p>Prezzo: <?php foreach($_SESSION["carrello"] as $prodotto2) {
+                                    <p id="prezzo">Prezzo: <?php foreach($_SESSION["carrello"] as $prodotto2) {
                                         if($prodotto["IDprodotto"] == $prodotto2["id"]) {
                                             echo $prodotto["prezzoUnitario"]*$prodotto2["quantità"];
                                         }
@@ -77,9 +76,15 @@
                         </li>
                     <?php endforeach; ?>
                     </ul>
-                    <label id="totalPrice" class="bg-info bg-opacity-10 border mt-4 mb-4">Prezzo totale: <?php echo $templateParams["prezzoTotale"]; ?>€</label>                    
-                    <input id="ordina" type="submit" value="Procedi all'ordine" class="mx-5 btn btn-light">
-                </form>
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            <label id="totalPrice" class="bg-info bg-opacity-10 border mt-4 mb-4">Prezzo totale: <?php echo $templateParams["prezzoTotale"]; ?>€</label>
+                        </div>
+                        <div class="col-6 col-md-5 py-3">
+                            <a id="ordina" href="pagamento.php" class="mx-5 btn btn-light">Procedi all'ordine</a>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
             </div>
         </div>
         <div class="row">
