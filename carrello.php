@@ -6,10 +6,21 @@ $templateParams["nome"] = "temp-carrello.php";
 
 $newProdotto = array();
 
-if(isset($_GET["id"]) && isset($_GET["quantità"])) {
-    $id = $_GET["id"];
-    $quantità = $_GET["quantità"];
-    $newProdotto = array("id"=>$id, "quantità"=> $quantità);
+$currentPage = $_SERVER['REQUEST_URI'];
+
+if(!isset($_SESSION['currentPage'])){
+    $_SESSION['currentPage'] = $currentPage;
+}
+
+if($_SESSION['currentPage'] != $currentPage){
+    $_SESSION['currentPage'] = $currentPage;
+    if(isset($_GET["id"]) && isset($_GET["quantità"])) {
+        $id = $_GET["id"];
+        $quantità = $_GET["quantità"];
+        $newProdotto = array("id"=>$id, "quantità"=> $quantità);
+        unset($_GET["id"]);
+        unset($_GET["quantità"]);
+    }
 }
 
 if(count($newProdotto) != 0) {
