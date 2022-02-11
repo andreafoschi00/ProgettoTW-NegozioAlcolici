@@ -11,7 +11,7 @@ a:hover {
     color: darkcyan !important;
 }
 
-footer > a:hover, input[type="submit"]:hover, div > a:hover {
+footer > a:hover, input[type="submit"]:hover, div > a:hover, input#registration:hover {
     background-color: bisque !important;
     color: black !important;
 }

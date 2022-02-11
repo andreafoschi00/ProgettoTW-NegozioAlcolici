@@ -6,7 +6,7 @@
     <meta charset="UTF-8"/>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css" >
+    <link rel="stylesheet" href="./css/style.css" >
 </head>
 <body class="bg-primary bg-opacity-10">
     <div class="container-fluid p-0 overflow-hidden">
@@ -66,7 +66,7 @@
                     <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4">          
                         <label>Non sei ancora registrato?</label>
                         <br/><br/>   
-                        <input type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.html';">
+                        <input id="registration" type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.html';">
                     </fieldset>
                 </form>
             </div>
