@@ -64,7 +64,7 @@
                                                                 }
                                                             }?></label>
                                     <label>|</label>
-                                    <input type="button" value="Rimuovi" class="btn btn-light">
+                                    <a id="rimuovi" href="carrello.php?action=rimuovi&id=<?php echo $prodotto["IDprodotto"];?>" class="btn btn-light">Rimuovi</a>
                                 </br>
                                     <p id="prezzo">Prezzo: <?php foreach($_SESSION["carrello"] as $prodotto2) {
                                         if($prodotto["IDprodotto"] == $prodotto2["id"]) {

@@ -18,13 +18,33 @@ if($_SESSION['currentPage'] != $currentPage){
         $id = $_GET["id"];
         $quantità = $_GET["quantità"];
         $newProdotto = array("id"=>$id, "quantità"=> $quantità);
-        unset($_GET["id"]);
-        unset($_GET["quantità"]);
-    }
+    } else if(isset($_GET["action"]) && isset($_GET["id"])) {
+        if($_GET["action"] == "rimuovi") {
+            $id = $_GET["id"];
+            $quantità = "";
+            foreach($_SESSION["carrello"] as $prodotto) {
+                if($prodotto["id"] == $_GET["id"]) {
+                    $quantità = $prodotto["quantità"];
+                }
+            }
+            if (($key = array_search(array("id"=>$id, "quantità"=>$quantità), $_SESSION["carrello"])) !== false) {
+                unset($_SESSION["carrello"][$key]);
+            }
+        }
+    } 
 }
 
 if(count($newProdotto) != 0) {
-    array_push($_SESSION["carrello"], $newProdotto);
+    $found = false;
+    foreach($_SESSION["carrello"] as $prodotto) {
+        if($prodotto["id"] == $newProdotto["id"]) {
+            $found = true;
+            break;
+        }
+    }
+    if($found == false) {
+        array_push($_SESSION["carrello"], $newProdotto);
+    }
 }
 
 if(count($_SESSION["carrello"]) == 0) {
