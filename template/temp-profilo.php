@@ -86,7 +86,7 @@
                     <a href="registrazione.php?action=modifica&email=<?php echo $_SESSION["email"];?>" class="my-2 col-md-4 btn btn-light">Modifica</a>
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
-                        <a id="logout" class="my-2 btn btn-primary"  href="logout.php">Logout</a>
+                        <a id="logout" class="my-2 btn btn-light"  href="logout.php">Logout</a>
                     </div>
                     <div class="col-md-1"></div>
                 </div>
