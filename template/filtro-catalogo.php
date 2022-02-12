@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Home - Negozio Alcolici</title>
+    <title><?php echo $templateParams["titolo"];?></title>
     <link rel="icon" type="image/x-icon" href=<?php echo UPLOAD_DIR."favicon.ico"?>>
     <meta charset="utf-8"/>
     <!-- Bootstrap CSS -->

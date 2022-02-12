@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 
-$templateParams["titolo"] = "Articolo - Negozio Alcolici";
+$templateParams["titolo"] = "Prodotto - Negozio Alcolici";
 $templateParams["nome"] = "singolo-prodotto.php";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodottiCasuali"] = $dbh->getRandomProducts(2);
