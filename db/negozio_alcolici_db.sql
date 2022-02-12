@@ -73,6 +73,7 @@ CREATE TABLE `ordine` (
   `ID` int(11) NOT NULL,
   `costoTotale` float NOT NULL,
   `tipoPagamento` enum('contanti','carta') NOT NULL,
+  `dataOraOrdine` datetime NOT NULL,
   `numeroCarta` int(11) NOT NULL,
   `dataScadenzaCarta` date NOT NULL,
   `cvv` int(11) NOT NULL,
