@@ -68,10 +68,20 @@
                                             <label for="quantità">Quantità desiderata:</label>
                                             <input class="my-1 mx-3" type="number" id="quantità" name="quantità" min="1" max="<?php echo $prodotto["quantitàDisponibile"];?>" required>
                                             <input class="my-1" type="text" id="id-buffer" name="id" hidden/>
-                                            <input type="submit" class="btn btn-light my-1 <?php if($prodotto["quantitàDisponibile"] == 0) echo "disabled";?>" value="Aggiungi al carrello"/>
+                                            <output id="presente" hidden><?php echo isPresent($prodotto["IDprodotto"]);?></output>
+                                            <input id="aggiunta" type="submit" class="btn btn-light my-1 <?php if($prodotto["quantitàDisponibile"] == 0) echo "disabled";?>" value="Aggiungi al carrello"/>
                                         </form>
+                                        </div>
+                                        <div class="toast">
+                                            <div class="toast-header">
+                                                <strong class="me-auto">Attenzione!</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                            </div>
+                                            <div class="toast-body">
+                                                <p>Questo prodotto è già inserito nel carrello.</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br>
                                 </div>
                             <div class="row">
                                 <h3 id="titleid" class="px-5"><?php echo $prodotto["nomeProdotto"];?> - ID prodotto: <?php echo $prodotto["IDprodotto"];?></h3>
