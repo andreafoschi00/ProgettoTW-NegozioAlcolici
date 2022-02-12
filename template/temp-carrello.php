@@ -28,10 +28,10 @@
                         <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.php">Catalogo</a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="carrello.php">Carrello</a>
+                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="<?php echo buttonLink();?>"><?php echo buttonText();?></a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.php">Login</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="<?php echo buttonLoginLink();?>"><?php echo buttonLoginText();?></a>
                     </li>
                 </ul> 
             </div>

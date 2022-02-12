@@ -11,7 +11,7 @@
             else{
                 if(password_verify($_POST["password"], $login_result[0]["password"])){
                     registerLoggedUser($login_result[0]);
-                    $templateParams["rank"] = "cliente";
+                    $_SESSION["rank"] = "cliente";
                 } else {
                     $templateParams["errorelogin"] = "Errore! Password errata";
                 }        
@@ -20,7 +20,7 @@
         else {
             if(password_verify($_POST["password"], $login_result[0]["password"])){
                 registerLoggedUser($login_result[0]);
-                $templateParams["rank"] = "venditore";
+                $_SESSION["rank"] = "venditore";
             } else {
                 $templateParams["errorelogin"] = "Errore! Password errata";
             }
@@ -29,22 +29,7 @@
 
 
     if(isUserLoggedIn()){
-        if($templateParams["rank"] == "venditore"){
-            $templateParams["titolo"] = "Home - Negozio Alcolici";
-            $templateParams["nome"] = "home-venditore.php";
-            $templateParams["prodottiRecenti"] = $dbh->getLatestProducts();
-            $templateParams["prodottiCasuali"] = $dbh->getRandomProducts(2);
-            $templateParams["categorie"] = $dbh->getCategories();
-            require 'template/home-venditore.php';
-        } 
-        else {
-            $templateParams["titolo"] = "Home - Negozio Alcolici";
-            $templateParams["nome"] = "home-cliente.php";
-            $templateParams["prodottiRecenti"] = $dbh->getLatestProducts();
-            $templateParams["prodottiCasuali"] = $dbh->getRandomProducts(2);
-            $templateParams["categorie"] = $dbh->getCategories();
-            require 'template/home-cliente.php';
-        }
+        require 'index.php';
     } else {
         $templateParams["titolo"] = "Login - Negozio Alcolici";
         $templateParams["nome"] = "login-form.php";

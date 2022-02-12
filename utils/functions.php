@@ -18,4 +18,26 @@ function isPresent($id) {
     }
     return $presente==true ? "true" : "false";
 }
+
+function buttonText() {
+    if($_SESSION["rank"] == "venditore") {
+        return "Amministrazione";
+    }
+    else return "Carrello";
+}
+
+function buttonLink() {
+    if($_SESSION["rank"] == "venditore") {
+        return "amministrazione.php";
+    }
+    else return "carrello.php";
+}
+
+function buttonLoginText() {
+    return isUserLoggedIn() ? "Profilo" : "Login";
+}
+
+function buttonLoginLink() {
+    return isUserLoggedIn() ? "profilo.php" : "login.php";
+}
 ?>
