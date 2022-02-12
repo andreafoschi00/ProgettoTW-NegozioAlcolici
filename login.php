@@ -10,8 +10,8 @@
             }
             else{
                 if(password_verify($_POST["password"], $login_result[0]["password"])){
-                    registerLoggedUser($login_result[0]);
                     $_SESSION["rank"] = "cliente";
+                    registerLoggedUser($login_result[0]);
                 } else {
                     $templateParams["errorelogin"] = "Errore! Password errata";
                 }        
@@ -19,8 +19,8 @@
         }
         else {
             if(password_verify($_POST["password"], $login_result[0]["password"])){
-                registerLoggedUser($login_result[0]);
                 $_SESSION["rank"] = "venditore";
+                registerLoggedUser($login_result[0]);
             } else {
                 $templateParams["errorelogin"] = "Errore! Password errata";
             }

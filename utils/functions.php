@@ -5,6 +5,9 @@ function isUserLoggedIn(){
 }
 
 function registerLoggedUser($user){
+    if($_SESSION["rank"] == "venditore") {
+        unset($_SESSION["carrello"]);
+    }
     $_SESSION["email"] = $user["email"];
 }
 

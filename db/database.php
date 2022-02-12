@@ -183,5 +183,60 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function getIDfromMail($email, $rank) {
+            $stmt = $this->db->prepare("SELECT ID
+                                        FROM $rank
+                                        WHERE email = ?");
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $id = $result->fetch_object();
+
+            return $id->ID;
+        }
+
+        public function getPersonalInformationFromID($id, $rank) {
+            $stmt = $this->db->prepare("SELECT ID, nome, cognome, dataNascita, email
+                                        FROM $rank
+                                        WHERE ID = ?");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getOrdersFromID($id) {
+            $stmt = $this->db->prepare("SELECT ID as IDordine, costoTotale, dataOraOrdine
+                                        FROM ordine
+                                        WHERE ID_cliente = ?");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getLast24hoursOrders() {
+            $stmt = $this->db->prepare("SELECT ID as IDordine, costoTotale, dataOraOrdine
+                                        FROM ordine
+                                        WHERE dataOraOrdine = DATE(NOW())");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getNotificationsFromID($id) {
+            $stmt = $this->db->prepare("SELECT testo, tipo
+                                        FROM notifica
+                                        WHERE ID_venditore = ? OR ID_cliente = ?");
+            $stmt->bind_param('ii', $id, $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
