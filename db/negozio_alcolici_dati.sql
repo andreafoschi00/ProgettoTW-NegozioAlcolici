@@ -1,29 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Creato il: Feb 09, 2022 alle 15:39
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 8.0.12
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `negozio_alcolici_tw`
---
-
---
--- Dump dei dati per la tabella `categoria`
---
 
 INSERT INTO `categoria` (`ID`, `nome`) VALUES
 (1, 'Birre'),
@@ -34,17 +16,9 @@ INSERT INTO `categoria` (`ID`, `nome`) VALUES
 (6, 'Digestivi'),
 (7, 'Altro');
 
---
--- Dump dei dati per la tabella `cliente`
---
-
 INSERT INTO `cliente` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `password`) VALUES
 (1, 'Mario', 'Rossi', '2000-05-04', 'mario.rossi@twalcolici.it', '$2y$10$0PB.LkwaFGmeCcniJGRrhOT58yFdYkWLtLONbvCnrW/fkiZOWa/Kq'),
 (2, 'Filippo', 'Verdi', '1999-11-13', 'filippo.verdi@twalcolici.it', '$2y$10$QmLm7645vIMHPD7qRd4KguQ4ccU9hVeTvCTpc6kjWkxc3TbYCMPmi');
-
---
--- Dump dei dati per la tabella `prodotto`
---
 
 INSERT INTO `prodotto` (`ID`, `ID_venditore`, `nome`, `nomeImmagine`, `quantitàDisponibile`, `tipoDisponibilità`, `prezzoUnitario`, `testoBreve`, `testoMedio`, `testoLungo`, `dataInserimento`, `ID_categoria`) VALUES
 (1, 1, '\"Tennessee Fire\" - Jack Daniel\'s (1l)\r\n', 'jack.jpg', 15, '1 mese', 36, 'Ambrato, con riflessi color mogano.', 'Ambrato, con riflessi color mogano. Al naso è piacevolmente intenso; spiccano le note speziate di cannella. Al palato è energico e incisivo.', 'Ambrato, con riflessi color mogano. Al naso è piacevolmente intenso; spiccano le note speziate di cannella. Al palato è energico e incisivo. Assolutamente da provare questa incredibile novità firmata Jack Daniel\'s; si tratta, infatti, del leggendario Tennessee Whisky aggiunto, in questo caso, di liquore alla cannella: ne risulta un prodotto stimolante e vitalizzante, da non perdere.', '2021-12-29', 3),
@@ -82,10 +56,6 @@ INSERT INTO `prodotto` (`ID`, `ID_venditore`, `nome`, `nomeImmagine`, `quantità
 (33, 2, 'Tequila Blanco - Espolòn, Destiladora San Nicolas (0.7l)', 'tequila.jpg', 19, '10 giorni', 19.9, 'Colore chiaro con tonalità platino.', 'Colore chiaro con tonalità platino. Al naso presenta un’aroma delicato di agave dolce, fiori, frutti tropicali e scorza di limone. Al palato è morbido. Presenta un corpo leggero, arricchito da ricche note di pepe, vaniglia, ananas alla griglia e spezie. Finale elegante e pulito che termina con un accenno di spezie.', 'Colore chiaro con tonalità platino. Al naso presenta un’aroma delicato di agave dolce, fiori, frutti tropicali e scorza di limone. Al palato è morbido. Presenta un corpo leggero, arricchito da ricche note di pepe, vaniglia, ananas alla griglia e spezie. Finale elegante e pulito che termina con un accenno di spezie. È un tequila “Blanco” che presenta il caratteristico aroma di agave dolce, unito a sentori di frutti tropicali e scorza di limone. Un prodotto di qualità per chi è alla ricerca di un’ottima base per i cocktail rinfrescanti e delicati come il Paloma.', '2022-01-11', 4),
 (34, 2, 'Vecchio Amaro del Capo Caffo', 'amarodelcapo.jpg', 5, '10 giorni', 10.9, 'Il Vecchio Amaro del Capo è un famoso liquore italiano realizzato con un\'antica ricetta calabrese.', 'Il Vecchio Amaro del Capo è un famoso liquore italiano realizzato con un\'antica ricetta calabrese, che prevede l\'utilizzo di erbe, frutti e fiori regionali. Da servire ghiacciato, è perfetto da gustare liscio, come ingrediente da cocktail o per correggere il caffè. Con il suo gusto aromatico, avvolgente e genuino, esprime tutto il calore mediterraneo della Calabria!', 'Il Vecchio Amaro del Capo, prodotto dalla distilleria Caffo, è una dei liquori italiani più conosciuti e apprezzati al mondo. È un amaro che nasce da un’antica ricetta calabrese, ancora oggi riproposta nella versione tramandata di generazione in generazione. La sua personalità unica è il frutto di oltre un secolo d’esperienza nella ricerca e selezione di botaniche tipiche della flora locale, lavorate con cura artigianale, rispettando i lunghi processi di produzione del passato. Le sue note fresche e fragranti, i suoi aromi decisi e persistenti, esprimono perfettamente il volto caldo e mediterraneo della terra di Calabria.\r\n\r\nIl Vecchio Amaro del Capo è la punta di diamante della distilleria calabrese Caffo. È un liquore alle erbe che rappresenta la memoria storica di un grande marchio italiano. La ricetta base è stata continuamente aggiornata e migliorata nel corso del tempo grazie all’apporto creativo di ogni generazione, che ha saputo dare un prezioso contributo a un prodotto di grande qualità. Il procedimento di produzione segue ancora i più antichi insegnamenti, con infusione in alcol delle botaniche per estrarre lentamente tutti i profumi e gli aromi. Da sempre famoso per il suo gusto delicato persistente, è stato il primo amaro a essere proposto da bere ghiacciato. La sua fama ha oltrepassato i confini nazionali e nel 2010 è stato premiato con la medaglia d’oro al concorso mondiale di Bruxelles. I suoi principi attivi, estratti da erbe officinali, aiutano la digestione e donano una sensazione di piacevole freschezza.\r\n\r\nIl Vecchio Amaro del Capo di Caffo è realizzato con 29 erbe, fiori, frutti e radici calabresi, tra cui: l’arancio amaro, l’arancio dolce, la liquirizia, il mandarino, la camomilla, il ginepro, la menta piperita, semi d’anice e molti ingredienti tenuti segreti. È particolarmente apprezzato per il suo gusto delicato, con aromi non troppo forti e con note equilibrate, non eccessivamente amare. Nel bicchiere si presenta di colore ambrato piuttosto scuro con riflessi brillanti. Elegante e ricco, regala note di erbe aromatiche della macchia mediterranea, morbide spezie, caramello, scorza d’agrumi, erbe officinali e balsamiche. Il sorso è avvolgente e suadente, con aromi molto persistenti e un finale lungo. Per apprezzarlo al meglio va degustato ghiacciato alla temperatura di -20 °C. È ottimo anche da usare per correggere il caffè o per preparare cocktail.', '2022-01-25', 6),
 (35, 1, 'VODKA DRY KEGLEVICH', 'vodka.jpg', 22, 'Immediata', 12, 'Vodka di puro grano distillata 6 volte di origine polacca per un gusto liscio, intenso.', 'L’attrazione nella sua forma più pura: vodka di puro grano distillata 6 volte di origine polacca per un gusto liscio, intenso e inconfondibile.', 'L’attrazione nella sua forma più pura: vodka di puro grano distillata 6 volte di origine polacca per un gusto liscio, intenso e inconfondibile.', '2022-01-05', 4);
-
---
--- Dump dei dati per la tabella `venditore`
---
 
 INSERT INTO `venditore` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `password`) VALUES
 (1, 'Andrea', 'Foschi', '2000-04-20', 'andrea.foschi13@studio.unibo.it', '$2y$10$5oSxen6di4a/NGSfgXeBWOnNvPH3JxxpZH1DqSi7uz56QetqT7ogG'),
