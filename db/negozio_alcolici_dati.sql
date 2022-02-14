@@ -24,7 +24,6 @@ INSERT INTO `venditore` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `passw
 (1, 'Andrea', 'Foschi', '2000-04-20', 'andrea.foschi13@studio.unibo.it', '$2y$10$5oSxen6di4a/NGSfgXeBWOnNvPH3JxxpZH1DqSi7uz56QetqT7ogG'),
 (2, 'Atanasov', 'Atanas Todorov', '2000-12-06', 'atanastodor.atanasov@studio.unibo.it', '$2y$10$p/AFQLb10EVsqOmghtxLdOxoK5uhNY36FVfXGX2keeVTQ3QmWLk4m'),
 (3, 'Admin', 'Admin', '2021-12-31', 'admin@twalcolici.it', '$2y$10$5BH0WU/2ioJeX3JNHjOA5.hoZzKbNBcZZpRFn/7nj02CAnR.3KkNq');
-COMMIT;
 
 INSERT INTO `prodotto` (`ID`, `ID_venditore`, `nome`, `nomeImmagine`, `quantitàDisponibile`, `tipoDisponibilità`, `prezzoUnitario`, `testoBreve`, `testoMedio`, `testoLungo`, `dataInserimento`, `ID_categoria`) VALUES
 (1, 1, '\"Tennessee Fire\" - Jack Daniel\'s (1l)\r\n', 'jack.jpg', 15, '1 mese', 36, 'Ambrato, con riflessi color mogano.', 'Ambrato, con riflessi color mogano. Al naso è piacevolmente intenso; spiccano le note speziate di cannella. Al palato è energico e incisivo.', 'Ambrato, con riflessi color mogano. Al naso è piacevolmente intenso; spiccano le note speziate di cannella. Al palato è energico e incisivo. Assolutamente da provare questa incredibile novità firmata Jack Daniel\'s; si tratta, infatti, del leggendario Tennessee Whisky aggiunto, in questo caso, di liquore alla cannella: ne risulta un prodotto stimolante e vitalizzante, da non perdere.', '2021-12-29', 3),
