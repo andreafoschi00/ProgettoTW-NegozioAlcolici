@@ -47,6 +47,14 @@
             <div class="col-md-8"></div>   
         </div>
         <div class="row">
+        <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <?php if(isset($templateParams["statoOrdine"])): ?>
+                    <p><?php echo $templateParams["statoOrdine"]; ?></p>
+                <?php endif; ?>
+            </div>
+    </div>
+        <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-6">
             <?php foreach($templateParams["prodottiRecenti"] as $prodotto):?>

@@ -238,5 +238,57 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function addOrderWithNoCreditCard($indirizzo, $tipoPagamento, $costoTotale, $clientID) {
+            $stmt = $this->db->prepare("INSERT INTO ordine (costoTotale, tipoPagamento, indirizzoSpedizione, dataOraOrdine, ID_cliente) 
+                                        VALUES (?, ?, ?, CURRENT_TIMESTAMP(), ?)");
+            $stmt->bind_param('dssi', $costoTotale, $tipoPagamento, $indirizzo, $clientID);
+            $stmt->execute();                  
+        }
+
+        public function addOrderWithCreditCard($indirizzo, $tipoPagamento, $costoTotale, $numcarta, $datacarta, $cvvcarta, $clientID) {
+            $stmt = $this->db->prepare("INSERT INTO ordine (costoTotale, tipoPagamento, indirizzoSpedizione, dataOraOrdine, numeroCarta, dataScadenzaCarta, cvv, ID_cliente) 
+                                        VALUES (?, ?, ?, CURRENT_TIMESTAMP(), ?, ?, ?, ?)");
+            $stmt->bind_param('dssisii', $costoTotale, $tipoPagamento, $indirizzo, $numcarta, $datacarta, $cvvcarta, $clientID);
+            $stmt->execute();
+        }
+
+        public function getLastOrderID() {
+            $stmt = $this->db->prepare("SELECT MAX(ID) AS ID
+                                        FROM ordine");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $id = $result->fetch_object();
+
+            return $id->ID;
+        }
+
+        public function addProductToOrder($IDordine, $IDProdotto, $quantità) {
+            $stmt = $this->db->prepare("INSERT INTO prodotto_in_ordine (ID_ordine, ID_prodotto, quantitàAcquistata) 
+                                        VALUES (?, ?, ?)");
+            $stmt->bind_param('iii', $IDordine, $IDProdotto, $quantità);
+            $stmt->execute();
+        }
+
+        public function getActualQuantityFromID($ID) {
+            $stmt = $this->db->prepare("SELECT quantitàDisponibile AS quantità
+                                        FROM prodotto
+                                        WHERE ID = ?");
+            $stmt->bind_param('i', $ID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $quantità = $result->fetch_object();
+
+            return $quantità->quantità;
+        }
+
+        public function updateProductAvailableQuantity($IDProdotto, $quantitaAttuale, $quantitaAcquistata) {
+            $stmt = $this->db->prepare("UPDATE prodotto 
+                                        SET quantitàDisponibile = ? 
+                                        WHERE ID = ?");
+            $quantitaAttuale -= $quantitaAcquistata;
+            $stmt->bind_param('ii', $quantitaAttuale, $IDProdotto);
+            $stmt->execute();
+        }
     }
 ?>

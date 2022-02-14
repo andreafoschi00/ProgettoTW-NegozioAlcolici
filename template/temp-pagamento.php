@@ -50,6 +50,14 @@
         </div>
         <div class="col-md-1"></div>   
     </div>
+    <div class="row">
+    <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <?php if(isset($templateParams["errorelogin"])): ?>
+                <p><?php echo $templateParams["errorelogin"]; ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
     <form class="my-3" action="processa-pagamento.php" method="POST">
         <div class="row">
             <div class="col-md-1"></div>

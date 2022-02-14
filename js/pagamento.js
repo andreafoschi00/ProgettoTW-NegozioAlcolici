@@ -27,6 +27,9 @@ $(document).ready(function(){
             $("#num-carta").prop("disabled", true);
             $("#data-carta").prop("disabled", true);
             $("#cvv-carta").prop("disabled", true);
+            $("#num-carta").prop("required", false);
+            $("#data-carta").prop("required", false);
+            $("#cvv-carta").prop("required", false);
             $("#carta").hide();
             $("#prodotti").show();
             $("#finalRow").show();
@@ -34,6 +37,9 @@ $(document).ready(function(){
             $("#num-carta").prop("disabled", false);
             $("#carta").show();
             $("#prodotti").hide();
+            $("#num-carta").prop("required", true);
+            $("#data-carta").prop("required", true);
+            $("#cvv-carta").prop("required", true);
         }
     });
 

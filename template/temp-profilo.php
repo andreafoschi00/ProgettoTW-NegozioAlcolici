@@ -7,6 +7,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="./js/profilo.js" type="text/javascript"></script>
 </head>
 <body class="bg-primary bg-opacity-10">
 <div class="container-fluid p-0 overflow-hidden">
@@ -57,10 +59,11 @@
                                 </tr>    
                             </thead>
                             <tbody>
-                                <?php foreach($templateParams["ordini"] as $ordine):?>
+                                <?php if(count($templateParams["ordini"]) == 0) { echo "Non ci sono ordini"; }
+                                else foreach($templateParams["ordini"] as $ordine):?>
                                     <tr>
                                         <td><?php echo $ordine["IDordine"];?></td>
-                                        <td><?php echo $ordine["costoTotale"];?></td>
+                                        <td id="prezzoTotale"><?php echo $ordine["costoTotale"];?>€</td>
                                         <td><?php echo $ordine["dataOraOrdine"];?></td>
                                         <td><a href="ordine.php">Mostra</a></td>
                                     </tr>
@@ -95,7 +98,8 @@
                  <div class="row">
                     <h2 class="text-center">Notifiche</h2>
                     <ul>
-                        <?php foreach($templateParams["notifiche"] as $notifica): ?>
+                        <?php if(count($templateParams["notifiche"]) == 0) { echo "Non ci sono notifiche"; }
+                            else foreach($templateParams["notifiche"] as $notifica): ?>
                             <li>Tipo: <?php echo $notifica["tipo"];?></li>
                             <li><?php echo $notifica["testo"];?></li>
                         <?php endforeach;?>

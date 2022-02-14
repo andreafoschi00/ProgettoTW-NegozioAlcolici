@@ -43,4 +43,8 @@ function buttonLoginText() {
 function buttonLoginLink() {
     return isUserLoggedIn() ? "profilo.php" : "login.php";
 }
+
+function isCreditCardSelected() {
+    return isset($_POST["numero"]) && isset($_POST["scadenza"]) && isset($_POST["cvv"]);
+}
 ?>

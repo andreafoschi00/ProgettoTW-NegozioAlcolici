@@ -37,7 +37,7 @@ CREATE TABLE `ordine` (
   `tipoPagamento` enum('Contanti alla consegna','Carta di credito') NOT NULL,
   `indirizzoSpedizione` enum('Via Cesare Pavese, 50, 47521 Cesena FC (1° Piano)','Via Nicolò Macchiavelli, 47521 Cesena FC (Piano Terra)') NOT NULL,
   `dataOraOrdine` datetime NOT NULL,
-  `numeroCarta` int(16) DEFAULT NULL,
+  `numeroCarta` bigint(16) DEFAULT NULL,
   `dataScadenzaCarta` date DEFAULT NULL,
   `cvv` int(3) DEFAULT NULL,
   `ID_cliente` int(11) NOT NULL
@@ -97,7 +97,7 @@ ALTER TABLE `prodotto`
 
 ALTER TABLE `prodotto_in_ordine`
   ADD PRIMARY KEY (`ID_ordine`,`ID_prodotto`),
-  ADD UNIQUE KEY `ID_ordine` (`ID_ordine`),
+  ADD KEY `ID_ordine` (`ID_ordine`),
   ADD KEY `ID_prodotto` (`ID_prodotto`);
 
 ALTER TABLE `venditore`
