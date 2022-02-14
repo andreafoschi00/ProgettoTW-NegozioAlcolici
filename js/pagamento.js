@@ -34,11 +34,11 @@ $(document).ready(function(){
         }
     });
 
-    $("#num-carta").focusout(function(){
+    $("#num-carta").focusin(function(){
         $("#data-carta").prop("disabled", false);
     });
 
-    $("#data-carta").focusout(function(){
+    $("#data-carta").focusin(function(){
         $("#cvv-carta").prop("disabled", false);
     });
 
