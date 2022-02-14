@@ -37,9 +37,9 @@ CREATE TABLE `ordine` (
   `tipoPagamento` enum('Contanti alla consegna','Carta di credito') NOT NULL,
   `indirizzoSpedizione` enum('Via Cesare Pavese, 50, 47521 Cesena FC (1° Piano)','Via Nicolò Macchiavelli, 47521 Cesena FC (Piano Terra)') NOT NULL,
   `dataOraOrdine` datetime NOT NULL,
-  `numeroCarta` int(11) DEFAULT NULL,
+  `numeroCarta` int(16) DEFAULT NULL,
   `dataScadenzaCarta` date DEFAULT NULL,
-  `cvv` int(11) DEFAULT NULL,
+  `cvv` int(3) DEFAULT NULL,
   `ID_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
