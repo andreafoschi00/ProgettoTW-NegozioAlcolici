@@ -11,6 +11,9 @@ $(document).ready(function(){
     $("#carta").hide();
     $("#prodotti").hide();
     $("#finalRow").hide();
+    $("#num-carta").prop("disabled", true);
+    $("#data-carta").prop("disabled", true);
+    $("#cvv-carta").prop("disabled", true);
 
     $("#indirizzo").change(function(){
         $("#metodo").show();
@@ -21,15 +24,15 @@ $(document).ready(function(){
             $("#num-carta").val("");
             $("#data-carta").val("");
             $("#cvv-carta").val("");
+            $("#num-carta").prop("disabled", true);
             $("#data-carta").prop("disabled", true);
             $("#cvv-carta").prop("disabled", true);
             $("#carta").hide();
             $("#prodotti").show();
             $("#finalRow").show();
         } else {
+            $("#num-carta").prop("disabled", false);
             $("#carta").show();
-            $("#data-carta").prop("disabled", true);
-            $("#cvv-carta").prop("disabled", true);
             $("#prodotti").hide();
         }
     });
@@ -42,7 +45,7 @@ $(document).ready(function(){
         $("#cvv-carta").prop("disabled", false);
     });
 
-    $("#cvv-carta").focusout(function(){
+    $("#cvv-carta").focusin(function(){
         $("#prodotti").show();
         $("#finalRow").show();
     });

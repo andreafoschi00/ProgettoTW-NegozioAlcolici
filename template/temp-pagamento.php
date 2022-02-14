@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-1"></div>   
     </div>
-    <form class="my-3" action="processa-pagamento.php" method="GET">
+    <form class="my-3" action="processa-pagamento.php" method="POST">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-4 my-2" id="indirizzo">
@@ -74,15 +74,15 @@
             <div class="col-md-4 my-2" id="carta">
                 <div class="form-group my-1">
                     <label class="form-label" for="num-carta">Numero di carta:</label>
-                    <input class="form-control" type="tel" id="num-carta" name="numero" placeholder="1234123412341234" pattern="[0-9]{16}" required>
+                    <input class="form-control" type="tel" id="num-carta" name="numero" placeholder="1234123412341234" pattern="[0-9]{16}">
                 </div>
                 <div class="form-group my-1">
                     <label class="form-label" for="data-carta">Data di scadenza:</label>
-                    <input class="form-control" type="date" id="data-carta" name="scadenza" required>
+                    <input class="form-control" type="date" id="data-carta" name="scadenza">
                 </div>
                 <div class="form-group my-1">
                     <label class="form-label" for="cvv-carta">CVV:</label>
-                    <input class="form-control" type="tel" id="cvv-carta" name="cvv" placeholder="123" pattern="[0-9]{3}" required>
+                    <input class="form-control" type="tel" id="cvv-carta" name="cvv" placeholder="123" pattern="[0-9]{3}">
                 </div>
             </div>
             <div class="col-md-1"></div>
