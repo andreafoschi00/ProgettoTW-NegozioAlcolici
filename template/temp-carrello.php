@@ -55,7 +55,7 @@
                         <li class="bg-info bg-opacity-10 border mt-4 mb-4 pt-3 pb-1">
                             <div class="row col-12">
                                 <div class="col-3 col-md-2 ms-2 py-2">
-                                    <img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>" >
+                                    <img class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>" >
                                 </div>
                                 <div class="col-md-2"></div>
                                 <div class="col-9 col-md-7">

@@ -65,6 +65,7 @@ if(count($_SESSION["carrello"]) == 0) {
             }
         }
     }
+    $_SESSION["costoCarrello"] = $totalPrice;
     $templateParams["prezzoTotale"] = $totalPrice;
     $templateParams["titolo_pagina"] = "Carrello";
 }

@@ -44,3 +44,25 @@ label:first-child, fieldset > label, li#stato-prodotto {
 table {
     border-style: solid;
 }
+
+#num-carta, #data-carta, #cvv-carta {
+    width: 70%;
+}
+
+#paga {
+    float: right;
+}
+
+@media (min-width: 768px) {
+    #thumb-prodotto {
+        width: 10%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #thumb-prodotto {
+        width: 25%;
+        height: auto;
+    }
+}

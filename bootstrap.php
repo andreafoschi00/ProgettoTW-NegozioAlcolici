@@ -7,6 +7,7 @@
     
     if(!isset($_SESSION["carrello"])) {
         $_SESSION["carrello"] = array();
+        $_SESSION["costoCarrello"] = 0;
     }
     
     if(!isset($_SESSION["rank"])) {
