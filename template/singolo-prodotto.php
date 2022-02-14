@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-md-1"></div>   
             <div class="col-12 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
-                    <h2 class="text-center">Prodotti recenti</h2>
+                    <h2 class="text-center"><?php echo $templateParams["titolo_pagina"]?></h2>
             </div>
             <div class="col-md-8"></div>   
         </div>

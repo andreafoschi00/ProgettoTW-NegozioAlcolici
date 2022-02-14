@@ -47,6 +47,9 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-6">
+                <?php if(isset($templateParams["errorelogin"])): ?>
+                    <p><?php echo $templateParams["errorelogin"]; ?></p>
+                <?php endif; ?>
                     <ul>
                     <?php foreach($templateParams["prodottiNelCarrello"] as $prodotto):?>
                         <li class="bg-info bg-opacity-10 border mt-4 mb-4 pt-3 pb-1">
