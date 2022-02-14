@@ -221,7 +221,7 @@
         public function getLast24hoursOrders() {
             $stmt = $this->db->prepare("SELECT ID as IDordine, costoTotale, dataOraOrdine
                                         FROM ordine
-                                        WHERE dataOraOrdine = DATE(NOW())");
+                                        WHERE DATE(dataOraOrdine) = CURDATE()");
             $stmt->execute();
             $result = $stmt->get_result();
 
