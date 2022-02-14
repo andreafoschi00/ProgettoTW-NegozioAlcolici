@@ -41,10 +41,14 @@
     </div>
     <div class="row">
         <div class="col-md-1"></div>   
-        <div class="col-12 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
+        <div class="col-5 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
             <h2 class="text-center"><?php echo $templateParams["titolo_pagina"];?></h2>
         </div>
-        <div class="col-md-8"></div>   
+        <div class="col-1 col-md-4"></div>
+        <div class="col-5 col-md-3 mt-3">
+            <a id="annulla" class="btn btn-danger text-center" href="carrello.php">Torna al carrello</a>
+        </div>
+        <div class="col-md-1"></div>   
     </div>
     <form class="my-3" action="processa-pagamento.php" method="GET">
         <div class="row">

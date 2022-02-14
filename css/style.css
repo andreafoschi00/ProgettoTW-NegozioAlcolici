@@ -6,12 +6,12 @@ article > header > img, aside > section > ul > li > img {
     max-height: 100px;
 }
 
-a:hover {
+a:not(#annulla):hover {
     background-color: darkblue !important;
     color: darkcyan !important;
 }
 
-footer > a:hover, input[type="submit"]:hover, div > a:hover, input#registration:hover {
+footer > a:hover, input[type="submit"]:hover, div > a:not(#annulla):hover, input#registration:hover {
     background-color: bisque !important;
     color: black !important;
 }
