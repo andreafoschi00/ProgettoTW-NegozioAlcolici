@@ -34,7 +34,7 @@ CREATE TABLE `notifica` (
 CREATE TABLE `ordine` (
   `ID` int(11) NOT NULL,
   `costoTotale` float NOT NULL,
-  `tipoPagamento` enum('contanti','carta') NOT NULL,
+  `tipoPagamento` enum('Contanti alla consegna','Carta di credito') NOT NULL,
   `indirizzoSpedizione` enum('Via Cesare Pavese, 50, 47521 Cesena FC (1° Piano)','Via Nicolò Macchiavelli, 47521 Cesena FC (Piano Terra)') NOT NULL,
   `dataOraOrdine` datetime NOT NULL,
   `numeroCarta` int(11) DEFAULT NULL,
