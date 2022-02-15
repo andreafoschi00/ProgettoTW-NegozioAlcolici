@@ -15,7 +15,7 @@
     <div aria-live="polite" aria-atomic="true" style="position: relative;">
         <div class="toast" id="<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo "show"; else echo "noshow"; ?>" style="position: absolute; top: 0; right: 0;">
             <div class="toast-header">
-                <img src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="">
+                <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="">
                 <strong class="mr-auto px-2">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</strong>
                 <small class="px-5">adesso</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
