@@ -27,6 +27,7 @@ CREATE TABLE `notifica` (
   `ID` int(11) NOT NULL,
   `testo` varchar(100) NOT NULL,
   `tipo` enum('spedizione','esaurimento') NOT NULL,
+  `letta` tinyint(1) NOT NULL,
   `ID_venditore` int(11) DEFAULT NULL,
   `ID_cliente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
