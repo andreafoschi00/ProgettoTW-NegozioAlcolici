@@ -8,11 +8,7 @@ $newProdotto = array();
 
 $currentPage = $_SERVER['REQUEST_URI'];
 
-if(!isset($_SESSION['currentPage'])){
-    $_SESSION['currentPage'] = $currentPage;
-}
-
-if($_SESSION['currentPage'] != $currentPage){
+if(!isset($_SESSION['currentPage']) || $_SESSION['currentPage'] != $currentPage){
     $_SESSION['currentPage'] = $currentPage;
     if(isset($_GET["id"]) && isset($_GET["quantità"])) {
         $id = $_GET["id"];

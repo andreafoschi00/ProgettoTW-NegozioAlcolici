@@ -30,6 +30,7 @@
 
     if(isUserLoggedIn()){
         $templateParams["messaggio"] = "Login effettuato con successo!";
+        $templateParams["numNotifiche"] = $dbh->getNumberOfUnderadNotification($_SESSION["email"], $_SESSION["rank"]);
         require 'index.php';
     } else {
         $templateParams["titolo"] = "Login - Negozio Alcolici";

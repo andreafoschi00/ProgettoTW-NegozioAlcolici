@@ -89,7 +89,7 @@
                     <a href="registrazione.php?action=modifica&email=<?php echo $_SESSION["email"];?>" class="my-2 col-md-4 btn btn-light">Modifica</a>
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
-                        <a id="logout" class="my-2 btn btn-light"  href="logout.php">Logout</a>
+                        <a id="logout" class="my-2 btn btn-light" href="logout.php">Logout</a>
                     </div>
                     <div class="col-md-1"></div>
                 </div>
@@ -100,8 +100,9 @@
                     <ul>
                         <?php if(count($templateParams["notifiche"]) == 0) { echo "Non ci sono notifiche"; }
                             else foreach($templateParams["notifiche"] as $notifica): ?>
-                            <li>Tipo: <?php echo $notifica["tipo"];?></li>
-                            <li><?php echo $notifica["testo"];?></li>
+                            <li id="contNotifica-<?php echo $notifica["letta"];?>" class="my-3">Tipo: <?php echo $notifica["tipo"];?><br>
+                            <?php echo $notifica["testo"];?><br>
+                            <a id="leggiNotifica-<?php echo $notifica["letta"];?>" class="btn btn-secondary" href="leggi-notifica.php?id=<?php echo $notifica["ID"];?>">Segna come letto</a></li>
                         <?php endforeach;?>
                     </ul>
                  </div>

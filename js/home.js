@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $(".toast#show").toast("show");
+    toastList.forEach(toast => toast.show()); 
     let start = 0;
     const offset = 5;
     $(".articles article").hide();

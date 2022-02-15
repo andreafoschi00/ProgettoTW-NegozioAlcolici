@@ -51,7 +51,7 @@
         }
 
         public function getProductByID($idProdotto) {
-            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, testoLungo, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore, quantitàDisponibile, prezzoUnitario
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, testoLungo, dataInserimento, venditore.ID as IDvenditore, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore, quantitàDisponibile, prezzoUnitario
                                         FROM prodotto, venditore
                                         WHERE venditore.ID = prodotto.ID_venditore
                                         AND prodotto.ID = ?");
@@ -229,7 +229,7 @@
         }
 
         public function getNotificationsFromID($id) {
-            $stmt = $this->db->prepare("SELECT testo, tipo
+            $stmt = $this->db->prepare("SELECT ID, testo, tipo, letta
                                         FROM notifica
                                         WHERE ID_venditore = ? OR ID_cliente = ?");
             $stmt->bind_param('ii', $id, $id);
@@ -289,6 +289,44 @@
             $quantitaAttuale -= $quantitaAcquistata;
             $stmt->bind_param('ii', $quantitaAttuale, $IDProdotto);
             $stmt->execute();
+        }
+
+        public function sendNotificationToClient($message, $id) {
+            $stmt = $this->db->prepare("INSERT INTO notifica (testo, tipo, letta, ID_cliente) 
+                                        VALUES (?, 'spedizione', '0', ?)");
+            $stmt->bind_param('si', $message, $id);
+            $stmt->execute();
+        }
+
+        public function sendNotificationToSeller($message, $id) {
+            $stmt = $this->db->prepare("INSERT INTO notifica (testo, tipo, letta, ID_venditore) 
+                                        VALUES (?, 'esaurimento', '0', ?)");
+            $stmt->bind_param('si', $message, $id);
+            $stmt->execute();
+        }
+
+        public function markNotificationAsReadWithID($id) {
+            $stmt = $this->db->prepare("UPDATE notifica 
+                                        SET letta = 1 
+                                        WHERE ID = ?");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+        }
+
+        public function getNumberOfUnderadNotification($email, $table) {
+            $attr = $table == "cliente" ? "ID_cliente" : "ID_venditore";
+            $stmt = $this->db->prepare("SELECT COUNT(letta) as letta
+                                        FROM notifica, $table
+                                        WHERE $table.email = ?
+                                        AND $table.ID = notifica.$attr
+                                        AND letta = 0");
+
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $quantità = $result->fetch_object();
+
+            return $quantità->letta;
         }
     }
 ?>

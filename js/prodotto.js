@@ -28,10 +28,6 @@ $(document).ready(function() {
     if($("#presente").val() == "true") {
         $("#aggiunta").prop("disabled", true);
         $("#quantità").prop("disabled", true);
-        const toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        const toastList = toastElList.map(function(toastEl) {
-            return new bootstrap.Toast(toastEl)
-        })
-        toastList.forEach(toast => toast.show()) 
+        $(".toast").toast("show");
     }
 });
