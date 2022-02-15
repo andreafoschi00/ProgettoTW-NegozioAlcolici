@@ -49,8 +49,8 @@
         <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-11">
-                <?php if(isset($templateParams["statoOrdine"])): ?>
-                    <p><?php echo $templateParams["statoOrdine"]; ?></p>
+                <?php if(isset($templateParams["messaggio"])): ?>
+                    <p><?php echo $templateParams["messaggio"]; ?></p>
                 <?php endif; ?>
             </div>
     </div>

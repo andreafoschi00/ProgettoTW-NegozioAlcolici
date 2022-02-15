@@ -29,6 +29,7 @@
 
 
     if(isUserLoggedIn()){
+        $templateParams["messaggio"] = "Login effettuato con successo!";
         require 'index.php';
     } else {
         $templateParams["titolo"] = "Login - Negozio Alcolici";

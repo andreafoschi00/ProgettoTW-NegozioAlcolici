@@ -21,7 +21,7 @@
                 $dbh->updateProductAvailableQuantity($prodotto["id"], $quantità, $prodotto["quantità"]);
             }
             $_SESSION["carrello"] = array();
-            $templateParams["statoOrdine"] = "Il tuo ordine è avvenuto con successo! Controlla la sezione profilo per ricevere aggiornamenti sull'ordine.";
+            $templateParams["messaggio"] = "Il tuo ordine è avvenuto con successo! Controlla la sezione profilo per ricevere aggiornamenti sull'ordine.";
             require("index.php");
         }
     }
