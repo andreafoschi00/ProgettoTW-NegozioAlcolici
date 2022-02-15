@@ -85,13 +85,17 @@
                         <li><?php echo $anagrafica["email"];?></li>
                         <?php endforeach;?>
                     </ul>
-                    <div class="col-md-1"></div>
-                    <a href="registrazione.php?action=modifica&email=<?php echo $_SESSION["email"];?>" class="my-2 col-md-4 btn btn-light">Modifica</a>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                        <a id="logout" class="my-2 btn btn-light" href="logout.php">Logout</a>
+                    <div class="row my-2">
+                        <div class="col-1 col-md-1"></div>
+                        <div class="col-4 col-md-4">
+                            <a href="registrazione.php?action=modifica&email=<?php echo $_SESSION["email"];?>" class="my-2 btn btn-light">Modifica</a>
+                        </div>
+                        <div class="col-2 col-md-2"></div>
+                        <div class="col-4 col-md-4">
+                            <a id="logout" class="my-2 btn btn-light" href="logout.php">Logout</a>
+                        </div>
+                        <div class="col-1 col-md-1"></div>
                     </div>
-                    <div class="col-md-1"></div>
                 </div>
              </div>
              <div class="col-12 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
