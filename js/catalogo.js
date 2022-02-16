@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $("article#show-no").hide();
+    $("article.show-no").hide();
 });

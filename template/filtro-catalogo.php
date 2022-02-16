@@ -51,7 +51,7 @@
             <div class="col-12 col-md-10">
                 <?php foreach($templateParams["prodottiCategoria"] as $prodotto):?>
                     <div class="articles">
-                        <article id="show-<?php if($templateParams["mostraEsauriti"] && $prodotto["quantitàDisponibile"]==0) echo "no"; else echo "yes";?>" class="bg-info bg-opacity-10 border mt-4 mb-4">
+                        <article class="bg-info bg-opacity-10 border mt-4 mb-4 show-<?php if($templateParams["mostraEsauriti"] && $prodotto["quantitàDisponibile"]==0) echo "no"; else echo "yes";?>">
                             <header>
                                 <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto"/>
                                 <h3 class="px-5"><?php echo $prodotto["nomeProdotto"]; ?></h3>
