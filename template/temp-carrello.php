@@ -6,7 +6,10 @@
     <meta charset="UTF-8"/>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css" >
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="./js/carrello.js" type="text/javascript"></script>
 </head>
 <body class="bg-primary bg-opacity-10">
     <div class="container-fluid p-0 overflow-hidden">
@@ -58,23 +61,24 @@
                                     <img class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto" >
                                 </div>
                                 <div class="col-md-2"></div>
-                                <div class="col-9 col-md-7">
-                                    <label><?php echo $prodotto["nomeProdotto"];?></label>
-                                </br>
+                                <div class="col-9 col-md-6">
+                                    <div class="col-md-12">
+                                        <label><?php echo $prodotto["nomeProdotto"];?></label>
+                                    </div>
                                     <label>Quantità: <?php foreach($_SESSION["carrello"] as $prodotto2) {
                                                                 if($prodotto["IDprodotto"] == $prodotto2["id"]) {
                                                                     echo $prodotto2["quantità"];
                                                                 }
                                                             }?></label>
                                     <label>|</label>
-                                    <a id="rimuovi" href="carrello.php?action=rimuovi&id=<?php echo $prodotto["IDprodotto"];?>" class="btn btn-light">Rimuovi</a>
-                                </br>
-                                    <p id="prezzo">Prezzo: <?php foreach($_SESSION["carrello"] as $prodotto2) {
+                                    <a href="carrello.php?action=rimuovi&id=<?php echo $prodotto["IDprodotto"];?>" class="btn btn-light rimuovi">Rimuovi</a>
+                                    <p class="prezzo">Prezzo: <?php foreach($_SESSION["carrello"] as $prodotto2) {
                                         if($prodotto["IDprodotto"] == $prodotto2["id"]) {
                                             echo $prodotto["prezzoUnitario"]*$prodotto2["quantità"];
                                         }
                                     }?>€</p>
                                 </div>
+                                <div class="col-md-2"></div>
                             </div>
                         </li>
                     <?php endforeach; ?>
@@ -99,7 +103,4 @@
         </div>
     </div>    
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<script src="./js/carrello.js" type="text/javascript"></script>
 </html>
