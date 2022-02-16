@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("td#prezzoProdotto").each(function(e) {
+    $("td.prezzoProdotto").each(function(e) {
         prezzo = parseFloat($(this).text().replace("€", ""));
         $(this).text(prezzo.toFixed(2) + "€");
     });
@@ -15,12 +15,16 @@ $(document).ready(function(){
     $("#data-carta").prop("disabled", true);
     $("#cvv-carta").prop("disabled", true);
 
-    $("#indirizzo").change(function(){
+    $("#indirizzo-piano-0").change(function(){
+        $("#metodo").show();
+    });
+
+    $("#indirizzo-piano-1").change(function(){
         $("#metodo").show();
     });
 
     $("#metodo").change(function(){
-        if($(".form-check-input#pagamento:checked").val() == "Contanti alla consegna") {
+        if($(".form-check-input#pagamento-contanti:checked").val() == "Contanti alla consegna") {
             $("#num-carta").val("");
             $("#data-carta").val("");
             $("#cvv-carta").val("");

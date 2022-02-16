@@ -62,21 +62,21 @@
     <form class="my-3" action="processa-pagamento.php" method="POST">
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-4 my-2" id="indirizzo">
+            <div class="col-md-4 my-2">
             <p class="h3">Scegliere l'indirizzo di spedizione:</p>
                 <?php foreach($templateParams["indirizzi"] as $indirizzo): ?>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" name="indirizzo" id="indirizzo" value="<?php echo $indirizzo;?>" required/>
-                    <label class="form-check-label" for="indirizzo"><?php echo $indirizzo;?></label>
-                </div>
+                    <div class="form-check" id="indirizzo-piano-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>">
+                        <input type="radio" class="form-check-input" name="indirizzo" id="indirizzo-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>" value="<?php echo $indirizzo;?>" required/>
+                        <label class="form-check-label" for="indirizzo-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>"><?php echo $indirizzo;?></label>
+                    </div>
                 <?php endforeach; ?>
             </div>
             <div class="col-md-3 my-2" id="metodo">
                 <p class="h3">Scegliere come pagare:</p>
                 <?php foreach($templateParams["metodi_pagamento"] as $pagamento): ?>
-                    <div class="form-check" id="met">
-                        <input type="radio" class="form-check-input" name="pagamento" id="pagamento" value="<?php echo $pagamento;?>" required/>
-                        <label class="form-check-label" for="pagamento"><?php echo $pagamento;?></label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="pagamento" id="pagamento-<?php echo $pagamento == PAGAMENTI[0] ? "contanti" : "carta";?>" value="<?php echo $pagamento;?>" required/>
+                        <label class="form-check-label" for="pagamento-<?php echo $pagamento == PAGAMENTI[0] ? "contanti" : "carta";?>"><?php echo $pagamento;?></label>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -111,14 +111,14 @@
                     <tbody>
                         <?php foreach($templateParams["prodottiNelCarrello"] as $prodotto):?>
                             <tr>
-                                <td class="text-center"><img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto" id="thumb-prodotto"/></td>
+                                <td class="text-center"><img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto" class="thumb-prodotto"/></td>
                                 <td><?php echo $prodotto["nomeProdotto"];?></td>
                                 <td><?php foreach($_SESSION["carrello"] as $prodotto2) {
                                             if($prodotto["IDprodotto"] == $prodotto2["id"]) {
                                                 echo $prodotto2["quantità"];
                                                 }
                                             }?></td>
-                                <td id="prezzoProdotto"><?php foreach($_SESSION["carrello"] as $prodotto2) {
+                                <td class="prezzoProdotto"><?php foreach($_SESSION["carrello"] as $prodotto2) {
                                         if($prodotto["IDprodotto"] == $prodotto2["id"]) {
                                             echo $prodotto["prezzoUnitario"]*$prodotto2["quantità"];
                                         }
@@ -131,7 +131,7 @@
             <div class="row" id="finalRow">
                 <div class="col-md-1"></div>
                 <div class="col-6 col-md-5 my-2">
-                    <label class="h3" id="prezzoTotale" class="my-4">Prezzo totale: <?php echo $templateParams["prezzoTotale"]; ?>€</label>
+                    <label class="h3 my-4" id="prezzoTotale">Prezzo totale: <?php echo $templateParams["prezzoTotale"]; ?>€</label>
                 </div>
                 <div class="col-6 col-md-5 py-3">
                     <button type="submit" id="paga" href="processa-pagamento.php" class="btn-lg btn-success">Procedi all'ordine</button>

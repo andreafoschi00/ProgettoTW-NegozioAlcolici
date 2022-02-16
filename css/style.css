@@ -72,14 +72,14 @@ table {
 }
 
 @media (min-width: 768px) {
-    #thumb-prodotto {
+    .thumb-prodotto {
         width: 10%;
         height: auto;
     }
 }
 
 @media (max-width: 768px) {
-    #thumb-prodotto {
+    .thumb-prodotto {
         width: 25%;
         height: auto;
     }
