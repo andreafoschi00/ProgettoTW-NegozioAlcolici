@@ -10,3 +10,15 @@ Per gli utenti 'Venditori', si forniscono due utenti, Andrea Foschi e Atanas Tod
 - Andrea Foschi: email => andrea.foschi@twalcolici.it, password => andreafoschi
 - Atanas Todorov: email => atanas.todorov@twalcolici.it, password => atanas.todorov
 - Admin: email => admin@twalcolici.it, password => admin
+
+TO-DO:
+- controllare validità html di tutte le pagine
+- sistemare l'indentazione dei tag
+- migliorare il toast della notifica
+- fare il template base (?)
+- definire le costanti
+- controllare l'accessibilità delle pagine (desktop e mobile)
+- fare più mockup possibili
+- relazione
+- notifiche da leggere sempre in alto
+- opzionale: aggiunta al carrello non deve rimandare al carrello, ma mostrare un toast
