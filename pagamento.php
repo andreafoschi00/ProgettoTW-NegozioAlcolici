@@ -8,8 +8,8 @@ if(!isUserLoggedIn()) {
     $templateParams["titolo"] = "Pagamento - Negozio Alcolici";
     $templateParams["nome"] = "temp-pagamento.php";
     $templateParams["titolo_pagina"] = "Pagamento";
-    $templateParams["indirizzi"] = array("Via Cesare Pavese, 50, 47521 Cesena FC (1° Piano)", "Via Nicolò Macchiavelli, 47521 Cesena FC (Piano Terra)");
-    $templateParams["metodi_pagamento"] = array("Contanti alla consegna", "Carta di credito");
+    $templateParams["indirizzi"] = INDIRIZZI;
+    $templateParams["metodi_pagamento"] = PAGAMENTI;
 
     $ids = array();
     foreach($_SESSION["carrello"] as $prodotto) {

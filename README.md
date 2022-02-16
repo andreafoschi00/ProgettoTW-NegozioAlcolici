@@ -16,7 +16,6 @@ TO-DO:
 - sistemare l'indentazione dei tag
 - migliorare il toast della notifica
 - fare il template base (?)
-- definire le costanti
 - controllare l'accessibilità delle pagine (desktop e mobile)
 - fare più mockup possibili
 - relazione
