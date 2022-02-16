@@ -12,7 +12,7 @@ Per gli utenti 'Venditori', si forniscono due utenti, Andrea Foschi e Atanas Tod
 - Admin: email => admin@twalcolici.it, password => admin
 
 TO-DO:
-- controllare validità html di tutte le pagine
+- controllare validità html di tutte le pagine -- FATTO (ricontrollare se viene implementato il template base)
 - sistemare l'indentazione dei tag
 - fare il template base (?)
 - controllare l'accessibilità delle pagine (desktop e mobile)

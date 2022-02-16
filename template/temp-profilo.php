@@ -64,7 +64,7 @@
                                 else foreach($templateParams["ordini"] as $ordine):?>
                                     <tr>
                                         <td><?php echo $ordine["IDordine"];?></td>
-                                        <td id="prezzoTotale"><?php echo $ordine["costoTotale"];?>€</td>
+                                        <td class="prezzoTotale"><?php echo $ordine["costoTotale"];?>€</td>
                                         <td><?php echo $ordine["dataOraOrdine"];?></td>
                                         <td><a href="ordine.php">Mostra</a></td>
                                     </tr>
@@ -105,9 +105,9 @@
                     <ul>
                         <?php if(count($templateParams["notifiche"]) == 0) { echo "Non ci sono notifiche"; }
                             else foreach($templateParams["notifiche"] as $notifica): ?>
-                            <li id="contNotifica-<?php echo $notifica["letta"];?>" class="my-3">Tipo: <?php echo $notifica["tipo"];?><br>
+                            <li class="my-3 toRead-<?php echo $notifica["letta"];?>">Tipo: <?php echo $notifica["tipo"];?><br>
                             <?php echo $notifica["testo"];?><br>
-                            <a id="leggiNotifica-<?php echo $notifica["letta"];?>" class="btn btn-secondary" href="leggi-notifica.php?id=<?php echo $notifica["ID"];?>">Segna come letto</a></li>
+                            <a class="btn btn-secondary toRead-<?php echo $notifica["letta"];?>" href="leggi-notifica.php?id=<?php echo $notifica["ID"];?>">Segna come letto</a></li>
                         <?php endforeach;?>
                     </ul>
                  </div>
