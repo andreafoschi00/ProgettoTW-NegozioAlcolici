@@ -18,5 +18,4 @@ TO-DO:
 - controllare l'accessibilità delle pagine (desktop e mobile)
 - fare più mockup possibili
 - relazione
-- notifiche da leggere sempre in alto
 - opzionale: aggiunta al carrello non deve rimandare al carrello, ma mostrare un toast

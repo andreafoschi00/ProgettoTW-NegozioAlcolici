@@ -231,7 +231,8 @@
         public function getNotificationsFromID($id) {
             $stmt = $this->db->prepare("SELECT ID, testo, tipo, letta
                                         FROM notifica
-                                        WHERE ID_venditore = ? OR ID_cliente = ?");
+                                        WHERE ID_venditore = ? OR ID_cliente = ?
+                                        ORDER BY letta");
             $stmt->bind_param('ii', $id, $id);
             $stmt->execute();
             $result = $stmt->get_result();
