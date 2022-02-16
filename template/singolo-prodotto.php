@@ -54,7 +54,7 @@
                         <header>
                             <div class="row">
                                 <div class="col-6 col-md-6">
-                                    <img id="img-prodotto" class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>"/>
+                                    <img id="img-prodotto" class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto"/>
                                 </div>
                                 <div class="col-6 col-md-6">
                                     <div class="row">
@@ -106,7 +106,7 @@
                     <ul class="nav flex-column">
                     <?php foreach($templateParams["prodottiCasuali"] as $prodottoCasuale):?>
                         <li class="nav-item border bg-light my-3">
-                            <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="<?php echo $prodottoCasuale["nome"];?>"/>
+                            <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="Immagine prodotto"/>
                             <h3 class="mx-1"><?php echo $prodottoCasuale["nome"];?></h3>
                             <p class="mx-1"><?php echo $prodottoCasuale["testoBreve"];?></p>
                             <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.php?id=<?php echo $prodottoCasuale["ID"];?>">Mostra</a>

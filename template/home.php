@@ -15,7 +15,7 @@
     <div id="toastContainer" aria-live="polite" aria-atomic="true">
         <div class="toast" id="<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo "show"; else echo "noshow"; ?>">
             <div class="toast-header bg-info">
-                <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="toast-icon">
+                <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="Icona toast">
                 <p id="toastTitle" class="mr-auto px-2 text-light">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</p>
                 <p id="toastTime" class="px-5 text-light">adesso</p>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
@@ -74,7 +74,7 @@
                 <div class="articles">
                     <article class="bg-info bg-opacity-10 border mt-4 mb-4">
                         <header>
-                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>"/>
+                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine Prodotto"/>
                             <h3 class="px-5"><?php echo $prodotto["nomeProdotto"]; ?></h3>
                             <p class="px-5"><?php echo $prodotto["dataInserimento"]; ?> - <?php echo $prodotto["cognomeVenditore"]; ?> <?php echo $prodotto["nomeVenditore"]; ?></p>
                         </header>
@@ -104,7 +104,7 @@
                     <ul class="nav flex-column">
                     <?php foreach($templateParams["prodottiCasuali"] as $prodottoCasuale):?>
                         <li class="nav-item border bg-light my-3">
-                            <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="<?php echo $prodottoCasuale["nome"];?>"/>
+                            <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="Immagine prodotto"/>
                             <h3 class="mx-1"><?php echo $prodottoCasuale["nome"];?></h3>
                             <p class="mx-1"><?php echo $prodottoCasuale["testoBreve"];?></p>
                             <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.php?id=<?php echo $prodottoCasuale["ID"];?>">Mostra</a>

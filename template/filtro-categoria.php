@@ -53,7 +53,7 @@
                 <div class="articles">
                     <article class="bg-info bg-opacity-10 border mt-4 mb-4">
                         <header>
-                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo $prodotto["nomeProdotto"];?>n"/>
+                            <img class="img-thumbnail" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto"/>
                             <h3 class="px-5"><?php echo $prodotto["nomeProdotto"]; ?></h3>
                             <p class="px-5"><?php echo $prodotto["dataInserimento"]; ?> - <?php echo $prodotto["cognomeVenditore"]; ?> <?php echo $prodotto["nomeVenditore"]; ?></p>
                         </header>
@@ -83,7 +83,7 @@
                     <ul class="nav flex-column">
                     <?php foreach($templateParams["prodottiCasuali"] as $prodottoCasuale):?>
                         <li class="nav-item border bg-light my-3">
-                            <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="<?php echo $prodottoCasuale["nome"];?>"/>
+                            <img src="<?php echo UPLOAD_DIR.$prodottoCasuale["nomeImmagine"];?>" alt="Immagine prodotto"/>
                             <h3 class="mx-1"><?php echo $prodottoCasuale["nome"];?></h3>
                             <p class="mx-1"><?php echo $prodottoCasuale["testoBreve"];?></p>
                             <a class="btn btn-link mt-2 mx-2 my-1 text-center text-white bg-primary" href="prodotto.php?id=<?php echo $prodottoCasuale["ID"];?>">Mostra</a>

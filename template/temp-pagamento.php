@@ -110,7 +110,7 @@
                     <tbody>
                         <?php foreach($templateParams["prodottiNelCarrello"] as $prodotto):?>
                             <tr>
-                                <td class="text-center"><img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" id="thumb-prodotto"/></td>
+                                <td class="text-center"><img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto" id="thumb-prodotto"/></td>
                                 <td><?php echo $prodotto["nomeProdotto"];?></td>
                                 <td><?php foreach($_SESSION["carrello"] as $prodotto2) {
                                             if($prodotto["IDprodotto"] == $prodotto2["id"]) {
