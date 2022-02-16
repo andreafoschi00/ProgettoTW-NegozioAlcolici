@@ -14,13 +14,15 @@
 <div class="container-fluid p-0 overflow-hidden">
     <div id="toastContainer" aria-live="polite" aria-atomic="true">
         <div class="toast" id="<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo "show"; else echo "noshow"; ?>">
-            <div class="toast-header">
+            <div class="toast-header bg-info">
                 <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="toast-icon">
-                <p id="toastTitle" class="mr-auto px-2">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</p>
-                <p id="toastTime" class="px-5">adesso</p>
+                <p id="toastTitle" class="mr-auto px-2 text-light">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</p>
+                <p id="toastTime" class="px-5 text-light">adesso</p>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
-            <div class="toast-body">Controlla la sezione notifiche nel tuo profilo.</div>
+            <div class="toast-body bg-light">
+                <p class="text-dark">Controlla la sezione notifiche nel tuo profilo.</p>
+            </div>
         </div>
     </div>
     <div class="row">

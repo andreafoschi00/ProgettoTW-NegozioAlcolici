@@ -73,12 +73,12 @@
                                         </form>
                                         </div>
                                         <div class="toast">
-                                            <div class="toast-header">
-                                                <strong class="me-auto">Attenzione!</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                            <div class="toast-header bg-dark">
+                                                <p id="toastTitle" class="me-auto text-light">Attenzione!</p>
+                                                <button type="button" class="btn-close bg-light" data-bs-dismiss="toast"></button>
                                             </div>
-                                            <div class="toast-body">
-                                                <p>Questo prodotto è già inserito nel carrello.</p>
+                                            <div class="toast-body bg-light">
+                                                <p class="text-dark">Questo prodotto è già inserito nel carrello.</p>
                                             </div>
                                         </div>
                                     </div>
