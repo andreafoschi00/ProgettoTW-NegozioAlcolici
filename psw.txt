@@ -1,9 +1,0 @@
-VENDITORE
-andrea.foschi13@studio.unibo.it -> Andrea2000
-atanastodor.atanasov@studio.unibo.it -> Takoz2356
-admin@twalcolici.it -> admin
-
-CLIENTE
-mario.rossi@twalcolici.it -> mariorossi
-filippo.verdi@twalcolici.it -> filippoverdi
-

@@ -21,8 +21,8 @@ INSERT INTO `cliente` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `passwor
 (2, 'Filippo', 'Verdi', '1999-11-13', 'filippo.verdi@twalcolici.it', '$2y$10$QmLm7645vIMHPD7qRd4KguQ4ccU9hVeTvCTpc6kjWkxc3TbYCMPmi');
 
 INSERT INTO `venditore` (`ID`, `nome`, `cognome`, `dataNascita`, `email`, `password`) VALUES
-(1, 'Andrea', 'Foschi', '2000-04-20', 'andrea.foschi13@studio.unibo.it', '$2y$10$5oSxen6di4a/NGSfgXeBWOnNvPH3JxxpZH1DqSi7uz56QetqT7ogG'),
-(2, 'Atanasov', 'Atanas Todorov', '2000-12-06', 'atanastodor.atanasov@studio.unibo.it', '$2y$10$p/AFQLb10EVsqOmghtxLdOxoK5uhNY36FVfXGX2keeVTQ3QmWLk4m'),
+(1, 'Andrea', 'Foschi', '2000-04-20', 'andrea.foschi@twalcolici.it', '$2y$10$Xrb1bUr0Z8fyUcfpFr4XcegP2LmdYSgAnE/c.tr86q1v3fEDrNkjS'),
+(2, 'Atanasov', 'Atanas Todorov', '2000-12-06', 'atanas.todorov@twalcolici.it', '$2y$10$iTxWqTY8IYcOPBevw/8mYO/6EFi5EtNX8TXbxQSegKneikmTphDaS'),
 (3, 'Admin', 'Admin', '2021-12-31', 'admin@twalcolici.it', '$2y$10$5BH0WU/2ioJeX3JNHjOA5.hoZzKbNBcZZpRFn/7nj02CAnR.3KkNq');
 
 INSERT INTO `prodotto` (`ID`, `ID_venditore`, `nome`, `nomeImmagine`, `quantitàDisponibile`, `tipoDisponibilità`, `prezzoUnitario`, `testoBreve`, `testoMedio`, `testoLungo`, `dataInserimento`, `ID_categoria`) VALUES

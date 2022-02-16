@@ -1,42 +1,12 @@
 # ProgettoTW-NegozioAlcolici
-TO-DO:
-Applicazione accessibile e responsive
-1) Design - mobile-first, user-centered, accessibile
-- creare/scelta di focus group
-- creare i mockup
-2) Progettazione del sito
-- definire la struttura delle pagine web (HTML)
-- gestire il db
-- definire i gruppi di utenti (venditore e cliente)
-- scegliere lo stile (bootstrap)
-- fare la relazione
-3) Implementazione del sito
-- Scrivere HTML -> Home, Prodotto, Contatti, Ricerca, Login*, Carrello**
-*Se nessuno loggato, pagina di autenticazione/registrazione
-Se loggato, mostra informazioni utente, modifica dati personali, visualizza ordini passati ecc.
-**Gestione degli articoli nel carrello, modalità di pagamento ecc.
-- CSS -> bootstrap
-- JavaScript/JQuery -> gestione notifiche, gestione password...
-- PHP -> connessione al database, creazione template, gestione utenti/prodotti, tracking spedizione
-- Funzionalità WOW - AJAX(notifiche..), Tracking Spedizione, Meccanismo salare password
+Questo repository contiene il progetto per il corso di Tecnologie Web di Foschi Andrea e Atanasov Atanas Todorov.
+Per poter usare l'applicazione, si possono creare utenti 'Clienti' da zero (tramite il form di registrazione), oppure utilizzare quelli che già forniamo:
 
-SUDDIVISIONE LAVORO
--Focus group
--Struttura pagine web
--Relazione
+- Mario Rossi: email => mario.rossi@twalcolici.it, password => mariorossi
+- Filippo Verdi: email => filippo.verdi@twalcolici.it, password => filippoverdi
 
-Foschi
--Mockup(Homepage sito, Prodotto)
--Gestione db
--Gestione notifiche
--HTML(Home, Prodotto, Contatti)
--Aggiunta, Modifica, Rimozione articoli
--Acquisto prodotto(pagamento)
--Tracking
-Tako
--Mockup(Registrazione utente, Carrello)
--Bootstrap
--HTML(Ricerca, Login, Carrello)
--Sistema di login (e gestione utente)
--Ricerca avanzata
--Salare password
+Per gli utenti 'Venditori', si forniscono due utenti, Andrea Foschi e Atanas Todorov, che hanno già inserito prodotti all'interno dell'applicazione, e un utente admin generico senza alcun prodotto inserito:
+
+- Andrea Foschi: email => andrea.foschi@twalcolici.it, password => andreafoschi
+- Atanas Todorov: email => atanas.todorov@twalcolici.it, password => atanas.todorov
+- Admin: email => admin@twalcolici.it, password => admin
