@@ -53,6 +53,24 @@ table {
     float: right;
 }
 
+#toast-container {
+    position: relative;
+}
+
+.toast#show {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#toastTitle {
+    font-weight: bold;
+}
+
+#toastTime {
+    font-size: smaller;
+}
+
 @media (min-width: 768px) {
     #thumb-prodotto {
         width: 10%;

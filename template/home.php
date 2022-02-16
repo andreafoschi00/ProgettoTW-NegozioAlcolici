@@ -12,12 +12,12 @@
 </head>
 <body class="bg-primary bg-opacity-10">
 <div class="container-fluid p-0 overflow-hidden">
-    <div aria-live="polite" aria-atomic="true" style="position: relative;">
-        <div class="toast" id="<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo "show"; else echo "noshow"; ?>" style="position: absolute; top: 0; right: 0;">
+    <div id="toastContainer" aria-live="polite" aria-atomic="true">
+        <div class="toast" id="<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo "show"; else echo "noshow"; ?>">
             <div class="toast-header">
-                <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="">
-                <strong class="mr-auto px-2">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</strong>
-                <small class="px-5">adesso</small>
+                <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="toast-icon">
+                <p id="toastTitle" class="mr-auto px-2">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</p>
+                <p id="toastTime" class="px-5">adesso</p>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
             <div class="toast-body">Controlla la sezione notifiche nel tuo profilo.</div>

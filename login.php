@@ -1,5 +1,6 @@
 <?php
     require_once 'bootstrap.php';
+    
     if(isset($_POST["username"]) && isset($_POST["password"])){
         $login_result = $dbh->checkVenditore($_POST["username"], $_POST["password"]);
         if(count($login_result) == 0){
