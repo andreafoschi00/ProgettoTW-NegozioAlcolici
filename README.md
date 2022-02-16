@@ -19,3 +19,4 @@ TO-DO:
 - fare più mockup possibili
 - relazione
 - opzionale: aggiunta al carrello non deve rimandare al carrello, ma mostrare un toast
+- opzionale: aggiungere più prodotti
