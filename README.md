@@ -14,7 +14,6 @@ Per gli utenti 'Venditori', si forniscono due utenti, Andrea Foschi e Atanas Tod
 TO-DO:
 - controllare validità html di tutte le pagine
 - sistemare l'indentazione dei tag
-- migliorare il toast della notifica
 - fare il template base (?)
 - controllare l'accessibilità delle pagine (desktop e mobile)
 - fare più mockup possibili
