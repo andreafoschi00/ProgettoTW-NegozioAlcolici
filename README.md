@@ -8,7 +8,7 @@ Per poter usare l'applicazione, si possono creare utenti 'Clienti' da zero (tram
 Per gli utenti 'Venditori', si forniscono due utenti, Andrea Foschi e Atanas Todorov, che hanno già inserito prodotti all'interno dell'applicazione, e un utente admin generico senza alcun prodotto inserito:
 
 - Andrea Foschi: email => andrea.foschi@twalcolici.it, password => andreafoschi
-- Atanas Todorov: email => atanas.todorov@twalcolici.it, password => atanas.todorov
+- Atanas Todorov: email => atanas.todorov@twalcolici.it, password => atanastodorov
 - Admin: email => admin@twalcolici.it, password => admin
 
 TO-DO:
