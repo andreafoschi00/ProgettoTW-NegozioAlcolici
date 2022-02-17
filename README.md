@@ -16,7 +16,6 @@ TO-DO:
 - sistemare l'indentazione dei tag
 - fare il template base (?)
 - controllare l'accessibilità delle pagine (desktop e mobile)
-- fare più mockup possibili (catalogo, carrello, pagamento, profilo)
 - relazione
 - opzionale: aggiunta al carrello non deve rimandare al carrello, ma mostrare un toast
 - opzionale: aggiungere più prodotti
