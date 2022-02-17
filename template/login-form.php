@@ -67,7 +67,7 @@
                     <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4">          
                         <label>Non sei ancora registrato?</label>
                         <br/><br/>   
-                        <input id="registration" type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.html';">
+                        <input id="registration" type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.php';">
                     </fieldset>
                 </form>
             </div>
