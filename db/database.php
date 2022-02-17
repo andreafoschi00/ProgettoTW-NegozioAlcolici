@@ -329,5 +329,31 @@
 
             return $quantità->letta;
         }
+
+        public function getClientEmails(){
+            $query = "SELECT email FROM cliente";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getSellerEmails(){
+            $query = "SELECT email FROM venditore";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function insertUser($nome, $cognome, $dataNascita, $email, $password){
+            $stmt = $this->db->prepare("INSERT INTO cliente (nome, cognome, dataNascita, email, `password`) 
+                                        VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param('sssss', $nome, $cognome, $dataNascita, $email, $password);
+            $stmt->execute();
+        }
+
     }
 ?>
