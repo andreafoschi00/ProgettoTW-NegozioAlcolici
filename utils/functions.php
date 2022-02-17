@@ -47,4 +47,13 @@ function buttonLoginLink() {
 function isCreditCardSelected() {
     return isset($_POST["numero"]) && isset($_POST["scadenza"]) && isset($_POST["cvv"]);
 }
+
+function checkIsUsed($email_result){
+    foreach($email_result as $email){
+        if(strcmp($_POST["e-mail"], $email["email"]) == 0){
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
 ?>
