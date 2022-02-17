@@ -19,7 +19,7 @@ CREATE TABLE `cliente` (
   `nome` varchar(20) NOT NULL,
   `cognome` varchar(20) NOT NULL,
   `dataNascita` date NOT NULL,
-  `email` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
