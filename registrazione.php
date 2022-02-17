@@ -45,11 +45,33 @@
             $templateParams["checkPassword"] = "invalid";
         }
         
+        if(!isset($templateParams["checkNome"]) && !isset($templateParams["checkCognome"]) && !isset($templateParams["checkData"]) 
+        && !isset($templateParams["checkE-mail"]) && !isset($templateParams["checkPassword"])) {  
+            $email_result = $dbh->getClientEmails();
+            $find = checkIsUsed($email_result);
+            if(!$find){
+                $email_result = $dbh->getSellerEmails();
+                $find = checkIsUsed($email_result);
+            }
+
+            if(!$find){
+                $_POST["password"] = password_hash($_POST["password"], PASSWORD_BCRYPT);
+                $dbh->insertUser($_POST["nome"], $_POST["cognome"], $_POST["dataNascita"], $_POST["e-mail"], $_POST["password"]);
+                $templateParams["checkRegistrazione"] = "La registrazione è avvenuta con successo! Ora puoi fare il login.";
+            } else{
+                $templateParams["checkPassword"] = "used";
+            }
+        }
     }
     
         $templateParams["titolo"] = "Registrazione - Negozio Alcolici";
         $templateParams["nome"] = "registrazione-form.php";
         $templateParams["titolo-pagina"] = "Registrati";
 
-    require 'template/registrazione-form.php';
+        if(isset($templateParams["checkRegistrazione"])){
+            require "login.php";
+        } else {
+            require 'template/registrazione-form.php';
+        }
+    
 ?>
