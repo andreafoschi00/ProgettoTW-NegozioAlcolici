@@ -48,8 +48,11 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-6">
-                <form action="#" method="POST">
+                <form action="login.php" method="POST">
                     <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4">
+                        <?php if(isset($templateParams["checkRegistrazione"])): ?>
+                        <p><?php echo $templateParams["checkRegistrazione"]; ?></p>
+                        <?php endif; ?>
                         <label>Indirizzo E-mail</label>
                         <br/><br/>
                         <input type="text" name="username" placeholder="youremail@gmail.com">
