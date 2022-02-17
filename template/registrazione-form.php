@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-6">
-                <form action="#" method="POST">
+                <form action="registrazione.php" method="POST">
                     <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4 field_border">
                         <label>Nome</label>
                         <br/><br/>
@@ -87,8 +87,10 @@
                          </div>
                          <div class="col-5 col-md-3">
                             <label>Sicurezza password:</label>
-                            <?php if(isset($templateParams["checkPassword"])): ?>
-                            <p><?php echo "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character."; ?></p>
+                            <?php if(isset($templateParams["checkPassword"]) && strcmp($templateParams["checkPassword"], "invalid") == 0): ?>
+                                <p><?php echo "La password deve essere lunga almeno 8 caratteri, deve includere una lettera maiuscola, una lettera minuscola e un carattere speciale."; ?></p>
+                            <?php elseif(isset($templateParams["checkPassword"]) && strcmp($templateParams["checkPassword"], "used") == 0): ?>
+                                    <p><?php echo "Questa e-mail è gia stata utilizzata."; ?></p>
                             <?php endif; ?>
                          </div>
                          <div class="col-4 col-md-3 mt-1">
