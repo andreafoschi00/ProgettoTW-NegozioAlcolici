@@ -95,7 +95,12 @@
                          </div>
                          <div class="col-4 col-md-3 mt-1">
                             <div class="progress">
-                                <div class="progress-bar bg-danger" style="width:25%">25%</div>
+                                <div class="progress-bar"  role="progressbar" 
+                                     aria-valuenow="0" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100" 
+                                     style="width:0%">
+                                </div>
                             </div>
                          </div>   
                         </div>
