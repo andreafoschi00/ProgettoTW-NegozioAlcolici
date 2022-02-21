@@ -96,7 +96,7 @@
                             <a id="logout" class="my-2 btn btn-light" href="logout.php">Logout</a>
                         </div>
                         <div class="col-1 col-md-1"></div>
-                        <label><?php if(isset($templateParams["errore"])) echo $templateParams["errore"]; ?></label>
+                        <label><?php if(isset($templateParams["messaggio"])) echo $templateParams["messaggio"]; ?></label>
                     </div>
                 </div>
              </div>

@@ -16,6 +16,6 @@
         $templateParams["ordini"] = $dbh->getLast24hoursOrders();
     }
 
-    $templateParams["notifiche"] = $dbh->getNotificationsFromID($id);
+    $templateParams["notifiche"] = $dbh->getNotificationsFromID($id, $_SESSION["rank"]);
     require 'template/temp-profilo.php';
 ?>

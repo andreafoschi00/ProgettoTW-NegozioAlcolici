@@ -229,12 +229,21 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function getNotificationsFromID($id) {
-            $stmt = $this->db->prepare("SELECT ID, testo, tipo, letta
-                                        FROM notifica
-                                        WHERE ID_venditore = ? OR ID_cliente = ?
-                                        ORDER BY letta");
-            $stmt->bind_param('ii', $id, $id);
+        public function getNotificationsFromID($id, $rank) {
+            $query = "";
+            if($rank == "cliente") {
+                $query = "SELECT ID, testo, tipo, letta
+                          FROM notifica
+                          WHERE ID_cliente = ?
+                          ORDER BY letta";
+            } else {
+                $query = "SELECT ID, testo, tipo, letta
+                            FROM notifica
+                            WHERE ID_venditore = ?
+                            ORDER BY letta";
+            }
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i', $id);
             $stmt->execute();
             $result = $stmt->get_result();
 
