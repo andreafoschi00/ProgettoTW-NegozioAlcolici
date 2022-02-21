@@ -66,7 +66,7 @@
                                         <td><?php echo $ordine["IDordine"];?></td>
                                         <td class="prezzoTotale"><?php echo $ordine["costoTotale"];?>€</td>
                                         <td><?php echo $ordine["dataOraOrdine"];?></td>
-                                        <td><a href="ordine.php?id=<?php echo $ordine["id"];?>">Mostra</a></td>
+                                        <td><a href="ordine.php?id=<?php echo $ordine["IDordine"];?>">Mostra</a></td>
                                     </tr>
                                 <?php endforeach;?>
                             </tbody>

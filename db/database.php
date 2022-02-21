@@ -210,7 +210,8 @@
         public function getOrdersFromID($id) {
             $stmt = $this->db->prepare("SELECT ID as IDordine, costoTotale, dataOraOrdine
                                         FROM ordine
-                                        WHERE ID_cliente = ?");
+                                        WHERE ID_cliente = ?
+                                        ORDER BY dataOraOrdine DESC");
             $stmt->bind_param('i', $id);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -353,6 +354,19 @@
                                         VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param('sssss', $nome, $cognome, $dataNascita, $email, $password);
             $stmt->execute();
+        }
+
+        public function getProductsFromOrder($id){
+            $stmt = $this->db->prepare("SELECT prodotto.nome AS nomeProdotto, nomeImmagine, quantitàAcquistata, prezzoUnitario
+                                        FROM prodotto, prodotto_in_ordine, ordine
+                                        WHERE ordine.ID = ? AND prodotto_in_ordine.ID_ordine = ordine.ID
+                                        AND prodotto_in_ordine.ID_prodotto = prodotto.ID");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+
         }
 
     }
