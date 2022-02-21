@@ -1,7 +1,14 @@
 <?php
     require_once 'bootstrap.php';
 
-    if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["dataNascita"]) && isset($_POST["e-mail"]) && isset($_POST["password"])) {
+
+    $templateParams["titolo"] = "Registrazione - Negozio Alcolici";
+    $templateParams["nome"] = "registrazione-form.php";
+    $templateParams["titolo-pagina"] = "Registrati";
+
+    if(isset($_GET["action"]) && $_GET["action"] == "modifica"){
+        $templateParams["datiAnagrafici"] = $dbh->getPersonalInformationFromEmail($_SESSION["email"], $_SESSION["rank"]);
+    } else if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["dataNascita"]) && isset($_POST["e-mail"]) && isset($_POST["password"])) {
         if(strlen($_POST["nome"]) > 1){
             for($i = 0; $i < 10 ;$i++){
                 if(strpos($_POST["nome"], strval($i))){
@@ -63,11 +70,6 @@
             }
         }
     }
-    
-        $templateParams["titolo"] = "Registrazione - Negozio Alcolici";
-        $templateParams["nome"] = "registrazione-form.php";
-        $templateParams["titolo-pagina"] = "Registrati";
-
         if(isset($templateParams["checkRegistrazione"])){
             require "login.php";
         } else {

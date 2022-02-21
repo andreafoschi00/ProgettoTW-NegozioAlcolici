@@ -369,5 +369,23 @@
 
         }
 
+        public function getPersonalInformationFromEmail($email, $rank) {
+            $stmt = $this->db->prepare("SELECT  nome, cognome, dataNascita, email
+                                        FROM $rank
+                                        WHERE email = ?");
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function updatePersonalInfo($nome, $cognome, $data, $email, $rank){
+            $stmt = $this->db->prepare("UPDATE $rank 
+                                        SET nome = ?, cognome = ?, dataNascita = ?
+                                        WHERE email = ?");
+            $stmt->bind_param('ssss', $nome, $cognome, $data, $email);
+            $stmt->execute();
+        }
     }
 ?>

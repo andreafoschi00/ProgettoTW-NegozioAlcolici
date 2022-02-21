@@ -89,13 +89,14 @@
                     <div class="row my-2">
                         <div class="col-1 col-md-1"></div>
                         <div class="col-4 col-md-4">
-                            <a href="registrazione.php?action=modifica&email=<?php echo $_SESSION["email"];?>" class="my-2 btn btn-light">Modifica</a>
+                            <a href="registrazione.php?action=modifica" class="my-2 btn btn-light">Modifica</a>
                         </div>
                         <div class="col-2 col-md-2"></div>
                         <div class="col-4 col-md-4">
                             <a id="logout" class="my-2 btn btn-light" href="logout.php">Logout</a>
                         </div>
                         <div class="col-1 col-md-1"></div>
+                        <label><?php if(isset($templateParams["errore"])) echo $templateParams["errore"]; ?></label>
                     </div>
                 </div>
              </div>

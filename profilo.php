@@ -17,6 +17,5 @@
     }
 
     $templateParams["notifiche"] = $dbh->getNotificationsFromID($id);
-
     require 'template/temp-profilo.php';
 ?>
