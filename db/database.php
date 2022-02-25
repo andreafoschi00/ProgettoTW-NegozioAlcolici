@@ -396,5 +396,24 @@
             $stmt->bind_param('ssss', $nome, $cognome, $data, $email);
             $stmt->execute();
         }
+
+        public function insertProduct($idVenditore, $titolo, $img, $quantità, $disponibilità, $prezzo, $testoBreve, $testoMedio, $testoLungo, $dataInserimento, $categoria){
+            $stmt = $this->db->prepare("INSERT INTO prodotto (ID_venditore, nome, nomeImmagine, quantitàDisponibile, tipoDisponibilità, prezzoUnitario,
+            testoBreve, testoMedio, testoLungo, dataInserimento, ID_categoria) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+             $stmt->bind_param('issisdssssi', $idVenditore, $titolo, $img, $quantità, $disponibilità, $prezzo, $testoBreve, $testoMedio, $testoLungo, $dataInserimento, $categoria);
+             $stmt->execute();
+        }
+
+        public function getIdByCategory($category){
+            $stmt = $this->db->prepare("SELECT ID
+                                        FROM categoria 
+                                        WHERE nome = ?");
+            $stmt->bind_param("s", $category);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
