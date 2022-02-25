@@ -26,7 +26,7 @@ img#img-prodotto {
     height: auto;
 }
 
-form > ul, div > ul {
+form > ul, div > ul, .removeProp {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -69,6 +69,14 @@ table {
 
 #toastTime {
     font-size: smaller;
+}
+
+#titoloarticolo {
+    margin-left: 10px;
+}
+
+.rimp, #testolungo{
+    width: 200px;
 }
 
 @media (min-width: 768px) {
