@@ -41,7 +41,7 @@
             <div class="col-md-1"></div>   
             <div class="col-12 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10 text-center">
                     <h2>Articoli</h2>
-                    <a href="gestisci-articoli.html">Inserisci Articolo</a>
+                    <a href="inserisci-articolo.php">Inserisci Articolo</a>
             </div>
             <div class="col-md-8"></div>   
         </div>
