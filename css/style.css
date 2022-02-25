@@ -37,7 +37,20 @@ form > ul > li > div > div > img, li > div > div > img, img#resize{
     width: 100px;
 }
 
-label:first-child, fieldset > label, li#stato-prodotto {
+.cat{
+    height: 150px;
+}
+
+.resize{
+    width: auto; 
+    max-height: 100%; 
+}
+
+.titoloProd{
+    margin-top: 60px;
+}
+
+fieldset > label, li#stato-prodotto, .fontBolder {
     font-weight: bolder;
 }
 
