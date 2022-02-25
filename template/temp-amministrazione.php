@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Amministrazione - Negozio Alcolici</title>
+    <title><?php echo $templateParams["titolo"]; ?></title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <meta charset="UTF-8"/>
     <!-- Bootstrap CSS -->
@@ -22,16 +22,16 @@
             <div class="col-12 col-md-10">
                 <ul class="nav nav-pills">
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="index.html">Home</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="index.php">Home</a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.html">Catalogo</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="catalogo.php">Catalogo</a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="amministrazione.html">Amministrazione</a>
+                    <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="<?php echo buttonLink();?>"><?php echo buttonText();?></a>
                     </li>
                     <li class="nav-item col-6 col-md-3">
-                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="login.html">Login</a>
+                        <a class="nav-link mt-2 mx-2 text-center text-white bg-dark" href="<?php echo buttonLoginLink();?>"><?php echo buttonLoginText();?></a>
                     </li>
                 </ul> 
             </div>
@@ -52,15 +52,17 @@
                     <tr>
                         <th class="text-center">Titolo</th><th class="text-center">Immagine</th><th class="text-center">Azione</th>
                     </tr>
+                    <?php foreach($templateParams["articoli"] as $articoli): ?> 
                     <tr>
-                        <td class="text-center">Heineken</td>
-                        <td class="text-center"><img src="./../img/heineken.jpg" alt="" id="resize"/></td>
+                        <td class="text-center"><?php echo $articoli["nomeProdotto"]; ?></td>
+                        <td class="text-center"><img src="<?php echo UPLOAD_DIR.$articoli["nomeImmagine"];?>" alt="" class="img-fluid"/></td>
                         <td class="text-center">
                             <a href="">Modifica</a>
                             <label>|</label>
                             <a href="">Cancella</a>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
             <div class="col-md-1"></div>
