@@ -48,23 +48,23 @@
             <div class="col-md-1"></div>   
             <div class="col-12 col-md-5 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
                     <ul>
-                        <li>
-                            <label for="titoloarticolo">Titolo:</label><input style="margin-left: 110px" type="text" id="titoloarticolo" name="titoloarticolo"/>
-                        </li></br>
-                        <li>
-                            <label for="testoarticolo">Testo Breve:</label><input style="margin-left: 68px" type="text" id="testoarticolo" name="testoarticolo"/>        
-                        </li></br>
-                        <li>
-                            <label for="imgarticolo">Immagine Articolo</label><input style="margin-left: 18px" type="file" name="imgarticolo" id="imgarticolo" />   
+                        <li class="bottomSpacing">
+                            <label for="titoloarticolo">Titolo:</label><input type="text" id="titoloarticolo" name="titoloarticolo"/>
+                        </li>
+                        <li class="bottomSpacing">
+                            <label for="testoarticolo">Testo Breve:</label><input type="text" id="testoarticolo" name="testoarticolo"/>        
+                        </li>
+                        <li class="bottomSpacing">
+                            <label for="imgarticolo">Immagine Articolo</label><input style="" type="file" name="imgarticolo" id="imgarticolo" />   
                             <img src="" alt=""/>
-                        </li></br>
-                        <li>
-                            <label>Prezzo:</label><input style="margin-left: 106px" type="text" name="imgarticolo" id="imgarticolo" />
-                        </li></br>
-                        <li>
-                            <label>Quantità:</label><input style="margin-left: 90px" type="text" name="imgarticolo" id="imgarticolo" />
-                        </li></br>
-                        <li>
+                        </li>
+                        <li class="bottomSpacing">
+                            <label>Prezzo:</label><input type="text" name="prezzoarticolo" id="prezzoarticolo" />
+                        </li>
+                        <li class="bottomSpacing">
+                            <label>Quantità:</label><input type="text" name="quantitàarticolo" id="quantitàarticolo" />
+                        </li>
+                        <li class="bottomSpacing">
                             <label>Disponibilità:</label>  
                             <select class="form-select" id="sel1" name="sellist1">
                                 <option>Immediata</option>
@@ -78,10 +78,12 @@
             <div class="col-12 col-md-5 mt-3 py-1 text-dark bg-info bg-opacity-10">
                     <ul>
                         <li>
-                            <label for="titoloarticolo">Testo medio:</label></br><textarea class="rimp" id="testomedio" name="testomedio"></textarea>
+                            <div class="row"><label for="titoloarticolo">Testo medio:</label></div>
+                            <div class="row"><textarea id="testomedio" name="testomedio"></textarea></div>
                         </li>
                         <li>
-                            <label for="testoarticolo">Testo lungo:</label></br><textarea id="testolungo" name="testolungo"></textarea>        
+                            <div class="row"><label for="testoarticolo">Testo lungo:</label></div>
+                            <div class="row"><textarea id="testolungo" name="testolungo"></textarea></div>        
                         </li>
                         <li>
                             <label>Categoria:</label>

@@ -75,8 +75,34 @@ table {
     margin-left: 10px;
 }
 
-.rimp, #testolungo{
-    width: 200px;
+#testomedio, #testolungo{
+    height: 100px;
+    width: 400px;
+    margin-left: 10px;
+}
+
+#titoloarticolo {
+    margin-left: 110px;
+}
+
+#testoarticolo {
+    margin-left: 68px;
+}
+
+#imgarticolo{
+    margin-left: 18px;
+}
+
+#prezzoarticolo{
+    margin-left: 106px;
+}
+
+#quantitàarticolo{
+    margin-left: 90px
+}
+
+.bottomSpacing{
+    margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
