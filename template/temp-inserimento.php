@@ -50,33 +50,33 @@
                 <div class="col-12 col-md-5 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
                         <ul>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="titoloarticolo">Titolo:</label><input type="text" id="titoloarticolo" name="titoloarticolo"/>
+                                <label class="fontBolder" for="titoloarticolo">Titolo:</label><input type="text" id="titoloarticolo" name="titoloarticolo" required/>
                             </li>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="testoarticolo">Testo Breve:</label><input type="text" id="testoarticolo" name="testoarticolo"/>        
+                                <label class="fontBolder" for="testoarticolo">Testo Breve:</label><input type="text" id="testoarticolo" name="testoarticolo" required/>        
                             </li>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input style="" type="file" name="imgarticolo" id="imgarticolo" />   
+                                <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input type="file" name="imgarticolo" id="imgarticolo" required/>   
                                 <img src="" alt=""/>
                             </li>
                             <?php if(isset($templateParams["checkImgExt"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkImgExt"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
-                                <label class="fontBolder">Prezzo:</label><input type="text" name="prezzoarticolo" id="prezzoarticolo" />
+                                <label class="fontBolder">Prezzo:</label><input type="text" name="prezzoarticolo" id="prezzoarticolo" required/>
                             </li>
                             <?php if(isset($templateParams["checkPrezzo"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkPrezzo"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
-                                <label class="fontBolder">Quantità:</label><input type="text" name="quantitàarticolo" id="quantitàarticolo" />
+                                <label class="fontBolder">Quantità:</label><input type="text" name="quantitàarticolo" id="quantitàarticolo" required/>
                             </li>
                             <?php if(isset($templateParams["checkQuantità"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkQuantità"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
                                 <label class="fontBolder">Disponibilità:</label>  
-                                <select class="form-select" id="sel1" name="disponibilitàarticolo">
+                                <select class="form-select" id="sel1" name="disponibilitàarticolo" required>
                                     <option>Immediata</option>
                                     <option>5 giorni</option>
                                     <option>10 giorni</option>
@@ -89,17 +89,17 @@
                         <ul>
                             <li>
                                 <div class="row"><label class="fontBolder" for="titoloarticolo">Testo medio:</label></div>
-                                <div class="row"><textarea id="testomedio" name="testomedio"></textarea></div>
+                                <div class="row"><textarea id="testomedio" name="testomedio" required></textarea></div>
                             </li>
                             <li>
                                 <div class="row"><label class="fontBolder" for="testoarticolo">Testo lungo:</label></div>
-                                <div class="row"><textarea id="testolungo" name="testolungo"></textarea></div>        
+                                <div class="row"><textarea id="testolungo" name="testolungo" required></textarea></div>        
                             </li>
                             <li>
                                 <label class="fontBolder">Categoria:</label>
                                 <?php foreach($templateParams["categorie"] as $categorie): ?>
                                 <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="<?php echo $categorie["nome"]; ?>" checked>
+                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="<?php echo $categorie["nome"]; ?>" checked required>
                                     <label class="form-check-label" for="radio1"><?php echo $categorie["nome"]; ?></label>
                                 </div>
                                 <?php endforeach; ?>
@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-10 mx-3 px-2 mt-3 py-1 text-dark bg-info bg-opacity-10">
-                <input type="submit" name="submit" value="Inserisci" class="btn btn-primary"/>
+                <input type="submit" name="submit" value="Inserisci" class="btn btn-primary" id="insButton"/>
             </div>
             <div class="col-md-1"></div>
         </div>
