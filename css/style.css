@@ -11,7 +11,7 @@ a:not(#annulla, #leggiNotifica-0, #leggiNotifica-1):hover {
     color: darkcyan !important;
 }
 
-footer > a:hover, input[type="submit"]:hover, div > a:not(#annulla):hover, input#registration:hover {
+footer > a:hover, input[type="submit"]:not(#insButton):hover, div > a:not(#annulla):hover, input#registration:hover {
     background-color: bisque !important;
     color: black !important;
 }
