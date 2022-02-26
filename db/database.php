@@ -415,5 +415,28 @@
 
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function getSellerProducts($id) {
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, testoMedio, dataInserimento, venditore.nome as nomeVenditore, venditore.cognome as cognomeVenditore
+                                        FROM prodotto, venditore
+                                        WHERE prodotto.ID_venditore = ? AND venditore.ID = prodotto.ID_venditore
+                                        ORDER BY prodotto.dataInserimento DESC");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getIdSeller($email) {
+            $stmt = $this->db->prepare("SELECT ID
+                                        FROM venditore
+                                        WHERE email = ?");
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
