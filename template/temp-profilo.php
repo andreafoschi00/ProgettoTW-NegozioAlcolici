@@ -49,6 +49,9 @@
                     </div>
                 </div>
                 <div class="row">
+                <?php if(isset($templateParams["emptyOrdini"])):?>
+                        <p class="px-2"><?php echo $templateParams["emptyOrdini"];?></p>
+                    <?php else: ?>
                     <div class="col-sm-12 table-responsive">
                         <table class="table table-bordered table-striped border-dark">
                             <thead>
@@ -60,8 +63,7 @@
                                 </tr>    
                             </thead>
                             <tbody>
-                                <?php if(count($templateParams["ordini"]) == 0) { echo "Non ci sono ordini"; }
-                                else foreach($templateParams["ordini"] as $ordine):?>
+                                <?php foreach($templateParams["ordini"] as $ordine):?>
                                     <tr>
                                         <td><?php echo $ordine["IDordine"];?></td>
                                         <td class="prezzoTotale"><?php echo $ordine["costoTotale"];?>€</td>
@@ -72,6 +74,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <?php endif;?>
                 </div>
             </div>
             <div class="col-12 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">

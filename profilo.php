@@ -16,6 +16,10 @@
         $templateParams["ordini"] = $dbh->getLast24hoursOrders();
     }
 
+    if(count($templateParams["ordini"]) == 0) {
+        $templateParams["emptyOrdini"] = "Non ci sono ordini";
+    }
+
     $templateParams["notifiche"] = $dbh->getNotificationsFromID($id, $_SESSION["rank"]);
     require 'template/temp-profilo.php';
 ?>
