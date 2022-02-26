@@ -386,7 +386,7 @@
             $stmt->execute();
             $result = $stmt->get_result();
 
-            return $result->fetch_all(MYSQLI_ASSOC);
+            return $result->fetch_row();
         }
 
         public function updatePersonalInfo($nome, $cognome, $data, $email, $rank){
