@@ -51,6 +51,9 @@
                 <?php if(isset($templateParams["checkInserimento"])): ?>    
                 <label><?php echo $templateParams["checkInserimento"]; ?></label>
                 <?php endif; ?>
+                <?php if(empty($templateParams["articoli"])): ?>
+                    <label><?php echo "Non hai inserito nessun articolo."; ?></label>
+                <?php else: ?>
                 <table class="table table-bordered table-striped border-dark"> 
                     <tr>
                         <th class="text-center">Titolo</th><th class="text-center">Immagine</th><th class="text-center">Azione</th>
@@ -62,11 +65,12 @@
                         <td class="text-center">
                             <a href="">Modifica</a>
                             <label>|</label>
-                            <a href="">Cancella</a>
+                            <a href="gestisci-articolo.php?action=3&id=<?php echo $articoli["IDprodotto"]; ?>">Cancella</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                 </table>
+                <?php endif; ?>
             </div>
             <div class="col-md-1"></div>
         </div>
