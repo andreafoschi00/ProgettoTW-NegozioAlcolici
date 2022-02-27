@@ -22,10 +22,12 @@ if($_GET["titoloarticolo"] != "" && $_GET["testoarticolo"] != "" && $_GET["imgar
         $dbh->insertProduct($dbh->getIDfromMail($_SESSION["email"], $_SESSION["rank"]), $_GET["titoloarticolo"], $_GET["imgarticolo"], $_GET["quantitàarticolo"], $_GET["disponibilitàarticolo"],
         $_GET["prezzoarticolo"], $_GET["testoarticolo"], $_GET["testomedio"], $_GET["testolungo"], date("Y-m-d"), $dbh->getIdByCategory($_GET["optradio"])[0]["ID"]);
         
+        $id = $dbh->getIdSeller($_SESSION["email"]);
+
         $templateParams["checkInserimento"] = "Inserimento eseguito con successo!";
         $templateParams["titolo"] = "Amministrazione - Negozio Alcolici";
         $templateParams["nome"] = "temp-amministrazione.php";
-        $templateParams["articoli"] = $dbh->getLatestProducts();
+        $templateParams["articoli"] = $dbh->getSellerProducts($id[0]["ID"]);
 
         require "template/temp-amministrazione.php";
     } else {
