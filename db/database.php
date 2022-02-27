@@ -438,5 +438,12 @@
     
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function deleteProduct($id){
+            $stmt = $this->db->prepare("DELETE FROM prodotto
+                                        WHERE ID = ?");
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+        }
     }
 ?>
