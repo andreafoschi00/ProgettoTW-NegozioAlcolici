@@ -70,7 +70,7 @@
                                             <input class="my-1 mx-3" type="number" id="quantità" name="quantità" min="1" max="<?php echo $prodotto["quantitàDisponibile"];?>" required>
                                             <input class="my-1" type="text" id="id-buffer" name="id" hidden/>
                                             <output id="presente" hidden><?php echo isPresent($prodotto["IDprodotto"]);?></output>
-                                            <input id="aggiunta" type="submit" class="btn btn-light my-1 <?php if($prodotto["quantitàDisponibile"] == 0) echo "disabled";?>" value="Aggiungi al carrello"/>
+                                            <input id="aggiunta" type="submit" class="btn btn-light my-1 <?php if($prodotto["quantitàDisponibile"] == 0 || $_SESSION["rank"]=="venditore") echo "disabled";?>" value="Aggiungi al carrello"/>
                                         </form>
                                         </div>
                                         <div class="toast">

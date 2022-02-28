@@ -66,5 +66,9 @@ if(count($_SESSION["carrello"]) == 0) {
     $templateParams["titolo_pagina"] = "Carrello";
 }
 
+if($_SESSION["rank"] == "venditore") {
+    $templateParams["titolo_pagina"] = "Non puoi avere accesso a questa pagina!";
+}
+
 require 'template/temp-carrello.php';
 ?>
