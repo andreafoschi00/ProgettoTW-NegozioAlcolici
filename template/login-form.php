@@ -47,31 +47,25 @@
         </div>
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
                 <form action="login.php" method="POST">
-                    <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4">
-                        <?php if(isset($templateParams["checkRegistrazione"])): ?>
-                        <p><?php echo $templateParams["checkRegistrazione"]; ?></p>
-                        <?php endif; ?>
-                        <label>Indirizzo E-mail</label>
-                        <br/><br/>
-                        <input class="removeHover" type="text" name="username" placeholder="youremail@gmail.com">
-                        <br/><br/>            
-                        <label>Password</label>
-                        <br/><br/>
-                        <input type="password" name="password" placeholder="********">
-                        <br/><br/>
-                        <input type="submit" name="submit" value="Accedi" class="btn btn-light">
+                    <ul>
+                        <li class="bottomSpacing">
+                            <?php if(isset($templateParams["checkRegistrazione"])): ?>
+                                <li class="bottomSpacing"><p><?php echo $templateParams["checkRegistrazione"]; ?></p></li>
+                            <?php endif; ?>
+                            <label>Indirizzo E-mail</label>
+                        </li>
+                        <li class="bottomSpacing"><input class="removeHover" type="text" name="username" placeholder="youremail@gmail.com"></li>    
+                        <li class="bottomSpacing"><label>Password</label></li>
+                        <li class="bottomSpacing"><input type="password" name="password" placeholder="********"></li>
+                        <li class="bottomSpacing"><input type="submit" name="submit" value="Accedi" class="btn btn-light"></li>
                         <?php if(isset($templateParams["errorelogin"])): ?>
-                        <p><?php echo $templateParams["errorelogin"]; ?></p>
+                            <li class="bottomSpacing"><p><?php echo $templateParams["errorelogin"]; ?></p></li>
                         <?php endif; ?>
-                    </fieldset>
-                    <br/><br/>
-                    <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4">          
-                        <label>Non sei ancora registrato?</label>
-                        <br/><br/>   
-                        <input id="registration" type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.php';">
-                    </fieldset>
+                        <li class="bottomSpacing"><label>Non sei ancora registrato?</label></li>
+                        <li class="bottomSpacing"><input id="registration" type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.php';"></li>
+                    </ul>
                 </form>
             </div>
         </div>
