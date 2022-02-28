@@ -43,7 +43,15 @@
                     <h2>Articoli</h2>
                     <a href="gestisci-articolo.php?action=1">Inserisci Articolo</a>
             </div>
-            <div class="col-md-8"></div>   
+            <div class="col-12 col-md-4 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
+                <form action="aggiungi-categoria.php" method="GET" class="form-inline">
+                    <input id="insCategoria" class="removeHover form-control" type="text" placeholder="Inserisci una nuova categoria"/>
+                    <div class="text-center">
+                    <button type="submit" class="my-3 btn btn-primary">Aggiungi</button>
+                    </div>
+                </form>
+            </div>   
+            <div class="col-md-4"></div>
         </div>
         <div class="row">
             <div class="col-md-1"></div>   
