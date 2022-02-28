@@ -78,10 +78,10 @@
                             <li class="bottomSpacing">
                                 <label class="fontBolder">Disponibilità:</label>  
                                 <select class="form-select" id="sel1" name="disponibilitàarticolo" required>
-                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "Immediata")  echo "selected"; ?>">Immediata</option>
-                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "5 giorni")  echo "selected"; ?>">5 giorni</option>
-                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "10 giorni")  echo "selected"; ?>">10 giorni</option>
-                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "1 mese")  echo "selected"; ?>">1 mese</option>
+                                    <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "Immediata")  echo "selected=selected"; ?>>Immediata</option>
+                                    <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "5 giorni")  echo "selected=selected"; ?>>5 giorni</option>
+                                    <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "10 giorni")  echo "selected=selected"; ?>>10 giorni</option>
+                                    <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "1 mese")  echo "selected=selected"; ?>>1 mese</option>
                                 </select>
                             </li>
                         </ul>
