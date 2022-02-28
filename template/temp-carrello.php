@@ -63,7 +63,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-9 col-md-6">
                                     <div class="col-md-12">
-                                        <label><?php echo $prodotto["nomeProdotto"];?></label>
+                                        <label id="nomeProdotto"><?php echo $prodotto["nomeProdotto"];?></label>
                                     </div>
                                     <label>Quantità: <?php foreach($_SESSION["carrello"] as $prodotto2) {
                                                                 if($prodotto["IDprodotto"] == $prodotto2["id"]) {
