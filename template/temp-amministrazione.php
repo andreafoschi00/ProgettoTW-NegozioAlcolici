@@ -45,9 +45,12 @@
             </div>
             <div class="col-12 col-md-4 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
                 <form action="aggiungi-categoria.php" method="GET" class="form-inline">
-                    <input id="insCategoria" class="removeHover form-control" type="text" placeholder="Inserisci una nuova categoria"/>
+                    <input type="text" id="insCategoria" name="insCategoria" class="removeHover form-control" placeholder="Inserisci una nuova categoria"/>
                     <div class="text-center">
                     <button type="submit" class="my-3 btn btn-primary">Aggiungi</button>
+                    <div class="row"><?php if(isset($templateParams["checkInsCategoria"])): ?>
+                    <label><?php echo $templateParams["checkInsCategoria"]; ?></label>
+                    <?php endif; ?></div>
                     </div>
                 </form>
             </div>   

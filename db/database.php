@@ -480,5 +480,12 @@
 
             return $immagine->nomeImmagine;
         }
+
+        public function insertCategory($nome){
+            $stmt = $this->db->prepare("INSERT INTO categoria (nome) 
+                                        VALUES (?)");
+             $stmt->bind_param('s', $nome);
+             $stmt->execute();
+        }
     }
 ?>
