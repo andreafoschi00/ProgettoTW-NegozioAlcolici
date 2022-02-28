@@ -54,14 +54,14 @@
                     <fieldset class="bg-info bg-opacity-10 border mt-4 mb-4 field_border">
                         <label>Nome</label>
                         <br/><br/>
-                        <input type="text" name="nome" id="nomeReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][0]; ?>">
+                        <input type="text" class="removeHover" name="nome" id="nomeReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][0]; ?>">
                         <?php if(isset($templateParams["checkNome"])): ?>
                         <p><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p>
                         <?php endif; ?>
                         <br/><br/>            
                         <label>Cognome</label>
                         <br/><br/>
-                        <input type="text" name="cognome" id="cognomeReg"value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][1]; ?>">
+                        <input type="text" class="removeHover" name="cognome" id="cognomeReg"value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][1]; ?>">
                         <?php if(isset($templateParams["checkCognome"])): ?>
                         <p><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p>
                         <?php endif; ?>
@@ -75,7 +75,7 @@
                         <br/><br/>
                         <label>E-mail</label>
                         <br/><br/>
-                        <input type="text" name="e-mail" id="emailReg" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled"; ?>>
+                        <input type="text" class="removeHover" name="e-mail" id="emailReg" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled"; ?>>
                         <?php if(isset($templateParams["checkE-mail"])): ?>
                         <p><?php echo "Devi inserire una e-mail valida!"; ?></p>
                         <?php endif; ?>

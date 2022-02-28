@@ -55,7 +55,7 @@
                         <?php endif; ?>
                         <label>Indirizzo E-mail</label>
                         <br/><br/>
-                        <input type="text" name="username" placeholder="youremail@gmail.com">
+                        <input class="removeHover" type="text" name="username" placeholder="youremail@gmail.com">
                         <br/><br/>            
                         <label>Password</label>
                         <br/><br/>
