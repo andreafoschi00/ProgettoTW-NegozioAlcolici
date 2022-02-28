@@ -20,8 +20,7 @@ if($_GET["titoloarticolo"] != "" && $_GET["testoarticolo"] != "" && $_GET["imgar
 
     if(!isset($templateParams["checkImgExt"]) && !isset($templateParams["checkPrezzo"]) && !isset($templateParams["checkQuantità"])){
         
-        $dbh->insertProduct($dbh->getIDfromMail($_SESSION["email"], $_SESSION["rank"]), $_GET["titoloarticolo"], $_GET["imgarticolo"], $_GET["quantitàarticolo"], $_GET["disponibilitàarticolo"],
-        $_GET["prezzoarticolo"], $_GET["testoarticolo"], $_GET["testomedio"], $_GET["testolungo"], date("Y-m-d"), $dbh->getIdByCategory($_GET["optradio"])[0]["ID"]);
+        $dbh->insertProduct($dbh->getIDfromMail($_SESSION["email"], $_SESSION["rank"]), $_GET["titoloarticolo"], $_GET["imgarticolo"], $_GET["quantitàarticolo"], $_GET["disponibilitàarticolo"], $_GET["prezzoarticolo"], $_GET["testoarticolo"], $_GET["testomedio"], $_GET["testolungo"], date("Y-m-d"), $dbh->getIdByCategory($_GET["optradio"]));
         
         $id = $dbh->getIdSeller($_SESSION["email"]);
 
