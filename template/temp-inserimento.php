@@ -44,32 +44,33 @@
             </div>
             <div class="col-md-8"></div>   
         </div>
-        <form action="inserisci-articolo.php" method="GET">
+        <form action="<?php if(isset($templateParams["prodotto"])) echo "modifica-articolo.php"; 
+        else echo "inserisci-articolo.php"; ?>" method="GET">
             <div class="row">
                 <div class="col-md-1"></div>   
                 <div class="col-12 col-md-5 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
                         <ul>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="titoloarticolo">Titolo:</label><input type="text" id="titoloarticolo" name="titoloarticolo" required class="removeHover"/>
+                                <label class="fontBolder" for="titoloarticolo">Titolo:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["nomeProdotto"]; ?>" id="titoloarticolo" name="titoloarticolo" required class="removeHover"/>
                             </li>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="testoarticolo">Testo Breve:</label><input type="text" id="testoarticolo" name="testoarticolo" required class="removeHover"/>        
+                                <label class="fontBolder" for="testoarticolo">Testo Breve:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["testoBreve"]; ?>" id="testoarticolo" name="testoarticolo" required class="removeHover"/>        
                             </li>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input type="file" name="imgarticolo" id="imgarticolo" required class="removeHover"/>   
+                                <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input type="file" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["nomeImmagine"]; ?>" name="imgarticolo" id="imgarticolo" required class="removeHover"/>   
                                 <img src="" alt=""/>
                             </li>
                             <?php if(isset($templateParams["checkImgExt"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkImgExt"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
-                                <label class="fontBolder">Prezzo:</label><input type="text" name="prezzoarticolo" id="prezzoarticolo" required class="removeHover"/>
+                                <label class="fontBolder">Prezzo:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["prezzoUnitario"]; ?>" name="prezzoarticolo" id="prezzoarticolo" required class="removeHover"/>
                             </li>
                             <?php if(isset($templateParams["checkPrezzo"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkPrezzo"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
-                                <label class="fontBolder">Quantità:</label><input type="text" name="quantitàarticolo" id="quantitàarticolo" required class="removeHover"/>
+                                <label class="fontBolder">Quantità:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["quantitàDisponibile"]; ?>" name="quantitàarticolo" id="quantitàarticolo" required class="removeHover"/>
                             </li>
                             <?php if(isset($templateParams["checkQuantità"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkQuantità"]; ?></label></li>
@@ -77,10 +78,10 @@
                             <li class="bottomSpacing">
                                 <label class="fontBolder">Disponibilità:</label>  
                                 <select class="form-select" id="sel1" name="disponibilitàarticolo" required>
-                                    <option>Immediata</option>
-                                    <option>5 giorni</option>
-                                    <option>10 giorni</option>
-                                    <option>1 mese</option>
+                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "Immediata")  echo "selected"; ?>">Immediata</option>
+                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "5 giorni")  echo "selected"; ?>">5 giorni</option>
+                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "10 giorni")  echo "selected"; ?>">10 giorni</option>
+                                    <option selected="<?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "1 mese")  echo "selected"; ?>">1 mese</option>
                                 </select>
                             </li>
                         </ul>
@@ -89,17 +90,17 @@
                         <ul>
                             <li>
                                 <div class="row"><label class="fontBolder" for="titoloarticolo">Testo medio:</label></div>
-                                <div class="row"><textarea id="testomedio" name="testomedio" required></textarea></div>
+                                <div class="row"><textarea id="testomedio" name="testomedio" required><?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["testoMedio"]; ?></textarea></div>
                             </li>
                             <li>
                                 <div class="row"><label class="fontBolder" for="testoarticolo">Testo lungo:</label></div>
-                                <div class="row"><textarea id="testolungo" name="testolungo" required></textarea></div>        
+                                <div class="row"><textarea id="testolungo"  name="testolungo" required><?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["testoLungo"]; ?></textarea></div>        
                             </li>
                             <li>
                                 <label class="fontBolder">Categoria:</label>
                                 <?php foreach($templateParams["categorie"] as $categorie): ?>
                                 <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="<?php echo $categorie["nome"]; ?>" checked required>
+                                    <input type="radio" <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["nomeCategoria"] == $categorie["nome"])  echo "checked"; ?> class="form-check-input" id="radio1" name="optradio" value="<?php echo $categorie["nome"]; ?>"  required>
                                     <label class="form-check-label" for="radio1"><?php echo $categorie["nome"]; ?></label>
                                 </div>
                                 <?php endforeach; ?>
@@ -111,7 +112,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-10 mx-3 px-2 mt-3 py-1 text-dark bg-info bg-opacity-10">
-                <input type="submit" name="submit" value="Inserisci" class="btn btn-primary" id="insButton"/>
+                <input type="submit" name="submit" value="<?php echo $templateParams["azione"]; ?>" class="btn btn-primary" id="insButton"/>
             </div>
             <div class="col-md-1"></div>
         </div>

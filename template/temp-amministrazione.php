@@ -41,7 +41,7 @@
             <div class="col-md-1"></div>   
             <div class="col-12 col-md-3 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10 text-center">
                     <h2>Articoli</h2>
-                    <a href="gestisci-articolo.php?titoloarticolo=">Inserisci Articolo</a>
+                    <a href="gestisci-articolo.php?action=1">Inserisci Articolo</a>
             </div>
             <div class="col-md-8"></div>   
         </div>
@@ -50,6 +50,9 @@
             <div class="col-12 col-md-10 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10 table-responsive">
                 <?php if(isset($templateParams["checkInserimento"])): ?>    
                 <label><?php echo $templateParams["checkInserimento"]; ?></label>
+                <?php endif; ?>
+                <?php if(isset($templateParams["checkEliminazione"])): ?>    
+                <label><?php echo $templateParams["checkEliminazione"]; ?></label>
                 <?php endif; ?>
                 <?php if(empty($templateParams["articoli"])): ?>
                     <label><?php echo "Non hai inserito nessun articolo."; ?></label>
@@ -63,7 +66,7 @@
                         <td class="text-center"><label class="titoloProd"><?php echo $articoli["nomeProdotto"]; ?></label></td>
                         <td class="text-center"><div class="cat"><img src="<?php echo UPLOAD_DIR.$articoli["nomeImmagine"];?>" alt="" class="resize"/></div></td>
                         <td class="text-center">
-                            <a href="">Modifica</a>
+                            <a href="gestisci-articolo.php?action=2&id=<?php echo $articoli["IDprodotto"]; ?>">Modifica</a>
                             <label>|</label>
                             <a href="gestisci-articolo.php?action=3&id=<?php echo $articoli["IDprodotto"]; ?>">Cancella</a>
                         </td>

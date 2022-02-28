@@ -174,9 +174,10 @@
         public function getProductsFromID($ids) {
             $count = str_repeat("?,", count($ids)-1)."?";
             $types = str_repeat("i", count($ids));
-            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, dataInserimento, quantitàDisponibile, prezzoUnitario
-                                        FROM prodotto
-                                        WHERE prodotto.ID in ($count)");
+            $stmt = $this->db->prepare("SELECT prodotto.ID as IDprodotto, prodotto.nome as nomeProdotto, nomeImmagine, dataInserimento, quantitàDisponibile, prezzoUnitario, testoBreve, testoMedio, testoLungo, tipoDisponibilità, categoria.nome as nomeCategoria
+                                        FROM prodotto, categoria
+                                        WHERE prodotto.ID in ($count) 
+                                        AND prodotto.ID_categoria = categoria.ID");
             $stmt->bind_param($types, ...$ids);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -444,6 +445,39 @@
                                         WHERE ID = ?");
             $stmt->bind_param('i', $id);
             $stmt->execute();
+        }
+
+        public function updateProduct($id, $titolo, $img, $quantità, $disponibilità, $prezzo, $testoBreve, $testoMedio, $testoLungo, $dataInserimento, $categoria){
+            $stmt = $this->db->prepare("UPDATE prodotto
+                                       SET nome = ?, nomeImmagine = ?, quantitàDisponibile = ?, tipoDisponibilità = ?, prezzoUnitario = ?,
+                                       testoBreve = ?, testoMedio = ?, testoLungo = ?, dataInserimento = ?, ID_categoria = ?
+                                       WHERE ID = ?");
+            $stmt->bind_param("ssisdssssii", $titolo, $img, $quantità, $disponibilità, $prezzo, $testoBreve, $testoMedio, $testoLungo, $dataInserimento, $categoria, $id);
+            $stmt->execute();
+        }
+
+        public function getProductIdFromName($nome){
+            $stmt = $this->db->prepare("SELECT ID
+                                        FROM prodotto
+                                        WHERE nome = ?");
+            $stmt->bind_param("s", $nome);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $id = $result->fetch_object();
+
+            return $id->ID;
+        }
+
+        public function getImgFromId($id){
+            $stmt = $this->db->prepare("SELECT nomeImmagine
+                                        FROM prodotto
+                                        WHERE ID = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $immagine = $result->fetch_object();
+
+            return $immagine->nomeImmagine;
         }
     }
 ?>
