@@ -20,7 +20,7 @@ if($_GET["titoloarticolo"] != "" && $_GET["testoarticolo"] != "" && $_GET["imgar
 
     if(!isset($templateParams["checkImgExt"]) && !isset($templateParams["checkPrezzo"]) && !isset($templateParams["checkQuantità"])){
         
-        $idCategory = $dbh->getIdByCategory($_SESSION["modificaProdotto"]["nomeCategoria"]);
+        $idCategory = $dbh->getIdByCategory($_GET["optradio"]);
         $idProduct = $dbh->getProductIdFromName($_SESSION["modificaProdotto"]["nomeProdotto"]);
         
         $dbh->updateProduct($idProduct, $_GET["titoloarticolo"], $_GET["imgarticolo"], $_GET["quantitàarticolo"], $_GET["disponibilitàarticolo"],

@@ -17,6 +17,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "1"){
     $templateParams["azione"] = "Modifica";
     $id = $_GET["id"];
     $templateParams["prodotto"] = $dbh->getProductsFromID(array($id));
+    
     $_SESSION["modificaProdotto"] = $templateParams["prodotto"][0];
     
     require "template/temp-inserimento.php";
