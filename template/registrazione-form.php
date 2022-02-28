@@ -58,12 +58,12 @@
                             <li class="bottomSpacing"><p><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p></li>
                         <?php endif; ?>           
                         <li class="bottomSpacing"><label>Cognome</label></li>
-                        <li class="bottomSpacing"><input type="text" class="removeHover" name="cognome" id="cognomeReg"value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][1]; ?>"></li>
+                        <li class="bottomSpacing"><input type="text" class="removeHover" name="cognome" id="cognomeReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][1]; ?>"></li>
                         <?php if(isset($templateParams["checkCognome"])): ?>
                             <li class="bottomSpacing"><p><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p></li>
                         <?php endif; ?>
                         <li class="bottomSpacing"><label>Data di nascita</label></li>
-                        <li class="bottomSpacing"><input type="date" name="dataNascita" id="dataNascitaReg"value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][2]; ?>"></li>
+                        <li class="bottomSpacing"><input type="date" name="dataNascita" id="dataNascitaReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][2]; ?>"></li>
                         <?php if(isset($templateParams["checkData"])): ?>
                             <li class="bottomSpacing"><p><?php echo "Devi essere maggiorenne per poterti registrare!"; ?></p></li>
                         <?php endif; ?>
@@ -97,7 +97,7 @@
                          </div>   
                         </div></li>
                         <li class="bottomSpacing"><input type="checkbox" id="showPass" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>><label <?php if(isset($dati)) echo "hidden"; ?>>Mostra password</label></li>
-                        <li><input id="insButton" type="submit" name="submit" value="<?php if(isset($templateParams["datiAnagrafici"])) echo "Modifica"; else echo "Registrati"; ?>" class="btn btn-primary regist" id="regist"></li>
+                        <li><input id="insButton" type="submit" name="submit" value="<?php if(isset($templateParams["datiAnagrafici"])) echo "Modifica"; else echo "Registrati"; ?>" class="btn btn-primary regist"></li>
                     </ul>
                 </form>
             </div>

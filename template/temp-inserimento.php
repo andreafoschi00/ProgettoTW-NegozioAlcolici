@@ -57,8 +57,7 @@
                                 <label class="fontBolder" for="testoarticolo">Testo Breve:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["testoBreve"]; ?>" id="testoarticolo" name="testoarticolo" required class="removeHover"/>        
                             </li>
                             <li class="bottomSpacing">
-                                <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input type="file" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["nomeImmagine"]; ?>" name="imgarticolo" id="imgarticolo" required class="removeHover"/>   
-                                <img src="" alt=""/>
+                                <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input type="file" name="imgarticolo" id="imgarticolo" required class="removeHover"/>   
                             </li>
                             <?php if(isset($templateParams["checkImgExt"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkImgExt"]; ?></label></li>
@@ -70,14 +69,14 @@
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkPrezzo"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
-                                <label class="fontBolder">Quantità:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["quantitàDisponibile"]; ?>" name="quantitàarticolo" id="quantitàarticolo" required class="removeHover"/>
+                                <label class="fontBolder">Quantit&agrave;:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["quantitàDisponibile"]; ?>" name="quantit&agrave;articolo" id="quantit&agrave;articolo" required class="removeHover"/>
                             </li>
                             <?php if(isset($templateParams["checkQuantità"])): ?>    
                             <li class ="bottomSpacing"><label><?php echo $templateParams["checkQuantità"]; ?></label></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
-                                <label class="fontBolder">Disponibilità:</label>  
-                                <select class="form-select" id="sel1" name="disponibilitàarticolo" required>
+                                <label class="fontBolder">Disponibilit&agrave;:</label>  
+                                <select class="form-select" id="sel1" name="disponibilit&agrave;articolo" required size="4">
                                     <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "Immediata")  echo "selected=selected"; ?>>Immediata</option>
                                     <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "5 giorni")  echo "selected=selected"; ?>>5 giorni</option>
                                     <option <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["tipoDisponibilità"] == "10 giorni")  echo "selected=selected"; ?>>10 giorni</option>
@@ -100,8 +99,8 @@
                                 <label class="fontBolder">Categoria:</label>
                                 <?php foreach($templateParams["categorie"] as $categorie): ?>
                                 <div class="form-check">
-                                    <input type="radio" <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["nomeCategoria"] == $categorie["nome"])  echo "checked"; ?> class="form-check-input" id="radio1" name="optradio" value="<?php echo $categorie["nome"]; ?>"  required>
-                                    <label class="form-check-label" for="radio1"><?php echo $categorie["nome"]; ?></label>
+                                    <input type="radio" <?php if(isset($templateParams["prodotto"]) && $templateParams["prodotto"][0]["nomeCategoria"] == $categorie["nome"])  echo "checked"; ?> class="form-check-input" name="optradio" value="<?php echo $categorie["nome"]; ?>"  required>
+                                    <label class="form-check-label"><?php echo $categorie["nome"]; ?></label>
                                 </div>
                                 <?php endforeach; ?>
                             </li>
