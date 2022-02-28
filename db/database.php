@@ -413,8 +413,9 @@
             $stmt->bind_param("s", $category);
             $stmt->execute();
             $result = $stmt->get_result();
-
-            return $result->fetch_all(MYSQLI_ASSOC);
+            $id = $result->fetch_object();
+            
+            return $id->ID;
         }
 
         public function getSellerProducts($id) {
