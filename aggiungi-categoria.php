@@ -6,6 +6,8 @@ if(isset($_GET["insCategoria"]) && ctype_alpha($_GET["insCategoria"])){
     $categories = $dbh->getCategories();
     $present = false;
     
+    $_GET["insCategoria"] = ucfirst($_GET["insCategoria"]);
+
     foreach($categories as $category){
         if($category["nome"] == $_GET["insCategoria"]){
             $present = true;
