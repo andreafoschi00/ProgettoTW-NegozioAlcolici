@@ -107,12 +107,12 @@
                  <div class="row">
                     <h2 class="text-center">Notifiche</h2>
                     <ul>
-                        <li><?php if(count($templateParams["notifiche"]) == 0) { echo "Non ci sono notifiche"; }
-                            else foreach($templateParams["notifiche"] as $notifica): ?>
+                        <?php if(count($templateParams["notifiche"]) == 0) { echo "Non ci sono notifiche"; }
+                        else foreach($templateParams["notifiche"] as $notifica): ?>
                             <li class="my-3 toRead-<?php echo $notifica["letta"];?>">Tipo: <?php echo $notifica["tipo"];?><br>
-                            <?php echo $notifica["testo"];?><br>
+                        <?php echo $notifica["testo"];?><br>
                             <a class="btn btn-secondary toRead-<?php echo $notifica["letta"];?>" href="leggi-notifica.php?id=<?php echo $notifica["ID"];?>">Segna come letto</a></li>
-                        <?php endforeach;?></li>
+                        <?php endforeach;?>
                     </ul>
                  </div>
              </div>      

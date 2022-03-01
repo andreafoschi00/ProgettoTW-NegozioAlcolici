@@ -56,7 +56,7 @@
                             <img class="img-fluid" src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"]; ?>" alt="Immagine prodotto">
                         </div>
                         <div class="col-9 col-md-8 px-5 offset-md-1">
-                            <label id="nomeProdotto"><?php echo $prodotto["nomeProdotto"]; ?></label>
+                            <label class="nomeProdotto"><?php echo $prodotto["nomeProdotto"]; ?></label>
                             <label>Quantità: <?php echo $prodotto["quantitàAcquistata"]; ?></label>
                             <label class="prezzoProdotto">Prezzo: <?php echo $prodotto["quantitàAcquistata"] * $prodotto["prezzoUnitario"]; ?></label>
                         </div>

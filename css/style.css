@@ -50,7 +50,7 @@ form > ul > li > div > div > img, li > div > div > img, img#resize{
     margin-top: 60px;
 }
 
-fieldset > label, li#stato-prodotto, .fontBolder, label#nomeProdotto, #totalPrice{
+fieldset > label, li#stato-prodotto, .fontBolder, label.nomeProdotto, #totalPrice{
     font-weight: bolder;
 }
 
