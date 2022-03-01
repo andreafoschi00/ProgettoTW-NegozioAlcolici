@@ -52,19 +52,19 @@
                     <ul>
                         <li class="bottomSpacing">
                             <?php if(isset($templateParams["checkRegistrazione"])): ?>
-                                <li class="bottomSpacing"><p><?php echo $templateParams["checkRegistrazione"]; ?></p></li>
+                                <li class="bottomSpacing"><p class="msgCorrect"><?php echo $templateParams["checkRegistrazione"]; ?></p></li>
                             <?php endif; ?>
-                            <label>Indirizzo E-mail</label>
+                            <label class="fontBolder">Indirizzo E-mail</label>
                         </li>
                         <li class="bottomSpacing"><input class="removeHover" type="text" name="username" placeholder="youremail@gmail.com"></li>    
-                        <li class="bottomSpacing"><label>Password</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder">Password</label></li>
                         <li class="bottomSpacing"><input type="password" name="password" placeholder="********"></li>
-                        <li class="bottomSpacing"><input type="submit" name="submit" value="Accedi" class="btn btn-light"></li>
+                        <li class="bottomSpacing"><input type="submit" name="submit" value="Accedi" class="btn btn-primary"></li>
                         <?php if(isset($templateParams["errorelogin"])): ?>
-                            <li class="bottomSpacing"><p><?php echo $templateParams["errorelogin"]; ?></p></li>
+                            <li class="bottomSpacing"><p class="msgError"><?php echo $templateParams["errorelogin"]; ?></p></li>
                         <?php endif; ?>
-                        <li class="bottomSpacing"><label>Non sei ancora registrato?</label></li>
-                        <li class="bottomSpacing"><input id="registration" type="button" value="Registrati" class="button_active btn btn-light" onclick="location.href='registrazione.php';"></li>
+                        <li class="bottomSpacing"><label class="fontBolder">Non sei ancora registrato?</label></li>
+                        <li class="bottomSpacing"><input type="button" value="Registrati" class="button_active btn btn-primary" onclick="location.href='registrazione.php';"></li>
                     </ul>
                 </form>
             </div>

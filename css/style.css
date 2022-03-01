@@ -11,7 +11,7 @@ a:not(#annulla, #leggiNotifica-0, #leggiNotifica-1):hover, input[type="text"]:no
     color: darkcyan !important;
 }
 
-footer > a:hover, input[type="submit"]:not(#insButton):hover, div > a:not(#annulla):hover, input#registration:hover {
+footer > a:hover, input[type="submit"]:not(.btn-primary):hover, div > a:not(#annulla):hover, input#registration:hover, input[type="button"]:not(.btn-primary):hover {
     background-color: bisque !important;
     color: black !important;
 }
@@ -116,6 +116,16 @@ table {
 
 .bottomSpacing{
     margin-bottom: 20px;
+}
+
+.msgError{
+    font-weight: bolder;
+    color: red;
+}
+
+.msgCorrect{
+    font-weight: bolder;
+    color: green;
 }
 
 @media (min-width: 768px) {

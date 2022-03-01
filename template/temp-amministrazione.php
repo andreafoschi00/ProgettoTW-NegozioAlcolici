@@ -49,7 +49,7 @@
                     <div class="text-center">
                     <button type="submit" class="my-3 btn btn-primary">Aggiungi</button>
                     <div class="row"><?php if(isset($templateParams["checkInsCategoria"])): ?>
-                    <label><?php echo $templateParams["checkInsCategoria"]; ?></label>
+                    <p class="msgCorrect"><?php echo $templateParams["checkInsCategoria"]; ?></p>
                     <?php endif; ?></div>
                     </div>
                 </form>
@@ -60,10 +60,10 @@
             <div class="col-md-1"></div>   
             <div class="col-12 col-md-10 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10 table-responsive">
                 <?php if(isset($templateParams["checkInserimento"])): ?>    
-                <label><?php echo $templateParams["checkInserimento"]; ?></label>
+                <p class="msgCorrect"><?php echo $templateParams["checkInserimento"]; ?></p>
                 <?php endif; ?>
                 <?php if(isset($templateParams["checkEliminazione"])): ?>    
-                <label><?php echo $templateParams["checkEliminazione"]; ?></label>
+                <p class="msgCorrect"><?php echo $templateParams["checkEliminazione"]; ?></p>
                 <?php endif; ?>
                 <?php if(empty($templateParams["articoli"])): ?>
                     <label><?php echo "Non hai inserito nessun articolo."; ?></label>

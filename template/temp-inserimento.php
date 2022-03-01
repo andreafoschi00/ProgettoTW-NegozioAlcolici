@@ -60,19 +60,19 @@
                                 <label class="fontBolder" for="imgarticolo">Immagine Articolo</label><input type="file" name="imgarticolo" id="imgarticolo" required class="removeHover"/>   
                             </li>
                             <?php if(isset($templateParams["checkImgExt"])): ?>    
-                            <li class ="bottomSpacing"><label><?php echo $templateParams["checkImgExt"]; ?></label></li>
+                            <li class ="bottomSpacing"><p class="msgError"><?php echo $templateParams["checkImgExt"]; ?></p></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
                                 <label class="fontBolder">Prezzo:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["prezzoUnitario"]; ?>" name="prezzoarticolo" id="prezzoarticolo" required class="removeHover"/>
                             </li>
                             <?php if(isset($templateParams["checkPrezzo"])): ?>    
-                            <li class ="bottomSpacing"><label><?php echo $templateParams["checkPrezzo"]; ?></label></li>
+                            <li class ="bottomSpacing"><p class="msgError"><?php echo $templateParams["checkPrezzo"]; ?></p></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
                                 <label class="fontBolder">Quantit&agrave;:</label><input type="text" value="<?php if(isset($templateParams["prodotto"])) echo $templateParams["prodotto"][0]["quantitàDisponibile"]; ?>" name="quantit&agrave;articolo" id="quantit&agrave;articolo" required class="removeHover"/>
                             </li>
                             <?php if(isset($templateParams["checkQuantità"])): ?>    
-                            <li class ="bottomSpacing"><label><?php echo $templateParams["checkQuantità"]; ?></label></li>
+                            <li class ="bottomSpacing"><p class="msgError"><?php echo $templateParams["checkQuantità"]; ?></p></li>
                             <?php endif; ?>
                             <li class="bottomSpacing">
                                 <label class="fontBolder">Disponibilit&agrave;:</label>  
@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-10 mx-3 px-2 mt-3 py-1 text-dark bg-info bg-opacity-10">
-                <input type="submit" name="submit" value="<?php echo $templateParams["azione"]; ?>" class="btn btn-primary" id="insButton"/>
+                <input type="submit" name="submit" value="<?php echo $templateParams["azione"]; ?>" class="btn btn-primary" />
             </div>
             <div class="col-md-1"></div>
         </div>

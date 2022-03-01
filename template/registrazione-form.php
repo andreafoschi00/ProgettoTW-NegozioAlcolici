@@ -10,7 +10,7 @@
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="./js/registrazione.js" type="text/javascript"></script>
 </head>
-<body class="bg-secondary">
+<body class="bg-primary bg-opacity-10">
     <div class="container-fluid p-0 overflow-hidden">
         <div class="row">
             <div class="col-12">
@@ -52,37 +52,37 @@
                 <form action="<?php if(isset($templateParams["datiAnagrafici"])) echo "modificaDati.php";
                 else echo "registrazione.php"; ?>" method="POST">
                     <ul>
-                        <li class="bottomSpacing"><label>Nome</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder">Nome</label></li>
                         <li class="bottomSpacing"><input type="text" class="removeHover" name="nome" id="nomeReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][0]; ?>"></li>
                         <?php if(isset($templateParams["checkNome"])): ?>
-                            <li class="bottomSpacing"><p><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p></li>
+                            <li class="bottomSpacing"><p class="msgError"><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p></li>
                         <?php endif; ?>           
-                        <li class="bottomSpacing"><label>Cognome</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder">Cognome</label></li>
                         <li class="bottomSpacing"><input type="text" class="removeHover" name="cognome" id="cognomeReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][1]; ?>"></li>
                         <?php if(isset($templateParams["checkCognome"])): ?>
-                            <li class="bottomSpacing"><p><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p></li>
+                            <li class="bottomSpacing"><p class="msgError"><?php echo "Devi inserire almeno 2 caratteri e non sono ammessi numeri!"; ?></p></li>
                         <?php endif; ?>
-                        <li class="bottomSpacing"><label>Data di nascita</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder">Data di nascita</label></li>
                         <li class="bottomSpacing"><input type="date" name="dataNascita" id="dataNascitaReg" value="<?php if(isset($templateParams["datiAnagrafici"])) echo $templateParams["datiAnagrafici"][2]; ?>"></li>
                         <?php if(isset($templateParams["checkData"])): ?>
-                            <li class="bottomSpacing"><p><?php echo "Devi essere maggiorenne per poterti registrare!"; ?></p></li>
+                            <li class="bottomSpacing"><p class="msgError"><?php echo "Devi essere maggiorenne per poterti registrare!"; ?></p></li>
                         <?php endif; ?>
-                        <li class="bottomSpacing"><label>E-mail</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder">E-mail</label></li>
                         <li class="bottomSpacing"><input type="text" class="removeHover" name="e-mail" id="emailReg" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled"; ?>></li>
                         <?php if(isset($templateParams["checkE-mail"])): ?>
-                            <li class="bottomSpacing"><p><?php echo "Devi inserire una e-mail valida!"; ?></p></li>
+                            <li class="bottomSpacing"><p class="msgError"><?php echo "Devi inserire una e-mail valida!"; ?></p></li>
                         <?php endif; ?>
-                        <li class="bottomSpacing"><label>Password</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder">Password</label></li>
                         <li class="bottomSpacing"><div class="row">
                          <div class="col-12 col-md-4">
                             <input type="password" name="password" id="passInput" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled"; ?>>   
                          </div>
                          <div class="col-5 col-md-3">
-                            <label <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>>Sicurezza password:</label>
+                            <label class="fontBolder" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>>Sicurezza password:</label>
                             <?php if(isset($templateParams["checkPassword"]) && strcmp($templateParams["checkPassword"], "invalid") == 0): ?>
-                                <p><?php echo "La password deve essere lunga almeno 8 caratteri, deve includere una lettera maiuscola, una lettera minuscola e un carattere speciale."; ?></p>
+                                <p class="msgError"><?php echo "La password deve essere lunga almeno 8 caratteri, deve includere una lettera maiuscola, una lettera minuscola e un carattere speciale."; ?></p>
                             <?php elseif(isset($templateParams["checkPassword"]) && strcmp($templateParams["checkPassword"], "used") == 0): ?>
-                                    <p><?php echo "Questa e-mail è gia stata utilizzata."; ?></p>
+                                    <p class="msgError"><?php echo "Questa e-mail è gia stata utilizzata."; ?></p>
                             <?php endif; ?>
                          </div>
                          <div class="col-4 col-md-3 mt-1">
