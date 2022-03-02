@@ -6,7 +6,7 @@ article > header > img, aside > section > ul > li > img {
     max-height: 100px;
 }
 
-a:not(#annulla, #leggiNotifica-0, #leggiNotifica-1):hover, input[type="text"]:not(.removeHover):hover {
+a:not(#annulla, #leggiNotifica-0, #leggiNotifica-1, .btn-light, .btn-link):hover, input[type="text"]:not(.removeHover):hover {
     background-color: darkblue !important;
     color: darkcyan !important;
 }
