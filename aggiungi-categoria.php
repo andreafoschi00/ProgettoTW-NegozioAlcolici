@@ -28,6 +28,7 @@ if(isset($_GET["insCategoria"]) && ctype_alpha($_GET["insCategoria"])){
         require "template/temp-amministrazione.php";
     } else {
         $templateParams["checkInsCategoria"] = "La categoria è già presente.";
+        $templateParams["message"] = "Error";
 
         $id = $dbh->getIdSeller($_SESSION["email"]);
     
@@ -41,6 +42,7 @@ if(isset($_GET["insCategoria"]) && ctype_alpha($_GET["insCategoria"])){
     
     if(!ctype_alpha($_GET["insCategoria"])){
         $templateParams["checkInsCategoria"] = "Non sono accettati caratteri numerici o speciali.";
+        $templateParams["message"] = "Error";
     }
     $id = $dbh->getIdSeller($_SESSION["email"]);
     

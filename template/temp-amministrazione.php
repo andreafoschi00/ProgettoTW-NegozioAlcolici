@@ -49,7 +49,8 @@
                     <div class="text-center">
                     <button type="submit" class="my-3 btn btn-primary">Aggiungi</button>
                     <div class="row"><?php if(isset($templateParams["checkInsCategoria"])): ?>
-                    <p class="msgCorrect"><?php echo $templateParams["checkInsCategoria"]; ?></p>
+                    <p class="<?php if(isset($templateParams["message"])) echo "msgError"; else echo "msgCorrect" 
+                    ?>"><?php echo $templateParams["checkInsCategoria"]; ?></p>
                     <?php endif; ?></div>
                     </div>
                 </form>

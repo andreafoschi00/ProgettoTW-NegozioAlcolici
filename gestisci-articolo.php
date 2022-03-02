@@ -6,7 +6,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "1"){
     
     $templateParams["titolo"] = "Inserimento Articolo - Negozio Alcolici";
     $templateParams["nome"] = "temp-inserimento.php";
-    $templateParams["azione"] = "Inserisci";
+    $_SESSION["azione"] = "Inserisci";
     $templateParams["categorie"] = $dbh->getCategories();
     require "template/temp-inserimento.php";
 } else if(isset($_GET["action"]) && $_GET["action"] == "2"){
@@ -14,7 +14,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "1"){
     $templateParams["titolo"] = "Modifica Articolo - Negozio Alcolici";
     $templateParams["nome"] = "temp-inserimento.php";
     $templateParams["categorie"] = $dbh->getCategories();
-    $templateParams["azione"] = "Modifica";
+    $_SESSION["azione"] = "Modifica";
     $id = $_GET["id"];
     $templateParams["prodotto"] = $dbh->getProductsFromID(array($id));
     

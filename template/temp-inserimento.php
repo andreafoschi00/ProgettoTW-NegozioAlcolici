@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-12 col-md-10 mx-3 px-2 mt-3 py-1 text-dark bg-info bg-opacity-10">
-                <input type="submit" name="submit" value="<?php echo $templateParams["azione"]; ?>" class="btn btn-primary" />
+                <input type="submit" name="submit" value="<?php echo $_SESSION["azione"]; ?>" class="btn btn-primary" />
             </div>
             <div class="col-md-1"></div>
         </div>
