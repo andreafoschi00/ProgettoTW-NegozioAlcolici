@@ -17,7 +17,7 @@
         <div class="toast" id="<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo "show"; else echo "noshow"; ?>">
             <div class="toast-header bg-info">
                 <img id="pr-home" src="<?php echo UPLOAD_DIR."favicon.ico"?>" class="rounded mr-2" alt="Icona toast">
-                <p id="toastTitle" class="mr-auto px-2 text-light">Hai <?php echo $templateParams["numNotifiche"];?> nuov<?php echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php echo $templateParams["numNotifiche"]==1?"a":"he"?>!</p>
+                <p id="toastTitle" class="mr-auto px-2 text-light">Hai <?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo $templateParams["numNotifiche"];?> nuov<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo $templateParams["numNotifiche"]==1?"a":"e"?> notific<?php if(isset($templateParams["numNotifiche"]) && $templateParams["numNotifiche"] > 0) echo $templateParams["numNotifiche"]==1?"a":"he"?>!</p>
                 <p id="toastTime" class="px-5 text-light">adesso</p>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
