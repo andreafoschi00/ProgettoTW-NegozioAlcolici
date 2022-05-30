@@ -54,11 +54,11 @@
                             <?php if(isset($templateParams["checkRegistrazione"])): ?>
                                 <li class="bottomSpacing"><p class="msgCorrect"><?php echo $templateParams["checkRegistrazione"]; ?></p></li>
                             <?php endif; ?>
-                            <label class="fontBolder">Indirizzo E-mail</label>
+                            <label class="fontBolder" for="email">Indirizzo E-mail</label>
                         </li>
-                        <li class="bottomSpacing"><input class="removeHover" type="text" name="username" placeholder="youremail@gmail.com"></li>    
-                        <li class="bottomSpacing"><label class="fontBolder">Password</label></li>
-                        <li class="bottomSpacing"><input type="password" name="password" placeholder="********"></li>
+                        <li class="bottomSpacing"><input class="removeHover" type="text" name="username" placeholder="youremail@gmail.com" id="email"></li>    
+                        <li class="bottomSpacing"><label class="fontBolder" for="password">Password</label></li>
+                        <li class="bottomSpacing"><input type="password" id="password" name="password" placeholder="********"></li>
                         <li class="bottomSpacing"><input type="submit" name="submit" value="Accedi" class="btn btn-primary"></li>
                         <?php if(isset($templateParams["errorelogin"])): ?>
                             <li class="bottomSpacing"><p class="msgError"><?php echo $templateParams["errorelogin"]; ?></p></li>

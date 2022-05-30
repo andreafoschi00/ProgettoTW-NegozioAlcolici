@@ -37,15 +37,16 @@ if(isset($_GET["action"]) && $_GET["action"] == "1"){
         require "template/temp-amministrazione.php";
     }
     
+    if(!isset($templateParams["tipoErrore"])){
+        $id = $dbh->getIdSeller($_SESSION["email"]);
 
-    $id = $dbh->getIdSeller($_SESSION["email"]);
-
-    $templateParams["checkEliminazione"] = "Cancellazione eseguita con successo!";
-    $templateParams["titolo"] = "Amministrazione - Negozio Alcolici";
-    $templateParams["nome"] = "temp-amministrazione.php";
-    $templateParams["articoli"] = $dbh->getSellerProducts($id[0]["ID"]);
-    require "template/temp-amministrazione.php";
-
+        $templateParams["checkEliminazione"] = "Cancellazione eseguita con successo!";
+        $templateParams["titolo"] = "Amministrazione - Negozio Alcolici";
+        $templateParams["nome"] = "temp-amministrazione.php";
+        $templateParams["articoli"] = $dbh->getSellerProducts($id[0]["ID"]);
+        require "template/temp-amministrazione.php";
+    }
+    
 } else {
     require "amministrazione.php"; 
 }

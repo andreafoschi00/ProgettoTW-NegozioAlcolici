@@ -45,6 +45,7 @@
             </div>
             <div class="col-12 col-md-4 mx-3 mt-3 py-1 text-dark bg-info bg-opacity-10">
                 <form action="aggiungi-categoria.php" method="GET" class="form-inline">
+                    <label for="insCategoria" hidden> Inserisci una categoria</label>
                     <input type="text" id="insCategoria" name="insCategoria" class="removeHover form-control" placeholder="Inserisci una nuova categoria"/>
                     <div class="text-center">
                     <button type="submit" class="my-3 btn btn-primary">Aggiungi</button>
