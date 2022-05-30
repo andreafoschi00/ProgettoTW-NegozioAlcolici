@@ -69,19 +69,19 @@
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input" id="radio2" name="filtro" value="menorecenti">
-                                    <label class="form-check-label" for="radio1">Prodotti meno recenti</label>
+                                    <label class="form-check-label" for="radio2">Prodotti meno recenti</label>
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input" id="radio3" name="filtro" value="alfabetico">
-                                    <label class="form-check-label" for="radio1">Venditore (ordine alfabetico)</label>
+                                    <label class="form-check-label" for="radio3">Venditore (ordine alfabetico)</label>
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input" id="radio4" name="filtro" value="moltidisponibili">
-                                    <label class="form-check-label" for="radio1">Grossa disponibilità</label>
+                                    <label class="form-check-label" for="radio4">Grossa disponibilità</label>
                                 </div>
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input" id="radio5" name="filtro" value="pochidisponibili">
-                                    <label class="form-check-label" for="radio1">In esarimento</label>
+                                    <label class="form-check-label" for="radio5">In esarimento</label>
                                 </div>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input my-2" type="checkbox" id="switchEsauriti" name="esauriti" value="yes">
