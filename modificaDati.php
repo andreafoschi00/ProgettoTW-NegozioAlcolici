@@ -36,6 +36,7 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["dataNascit
 
 if(isset($templateParams["checkNome"]) || isset($templateParams["checkCognome"]) || isset($templateParams["checkData"])){
     $templateParams["messaggio"] = "Dati inseriti errati!";
+    $templateParams["tipoErrore"] = "modifica";
 } else {
     $dbh->updatePersonalInfo($_POST["nome"], $_POST["cognome"], $_POST["dataNascita"], $_SESSION["email"], $_SESSION["rank"]);
     $templateParams["messaggio"] = "Dati aggiornati correttamente.";
