@@ -67,15 +67,15 @@
                         <?php if(isset($templateParams["checkData"])): ?>
                             <li class="bottomSpacing"><p class="msgError"><?php echo "Devi essere maggiorenne per poterti registrare!"; ?></p></li>
                         <?php endif; ?>
-                        <li class="bottomSpacing"><label class="fontBolder">E-mail</label></li>
-                        <li class="bottomSpacing"><input type="text" class="removeHover" name="e-mail" id="emailReg" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled"; ?>></li>
+                        <li class="bottomSpacing"><label class="fontBolder" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>>E-mail</label></li>
+                        <li class="bottomSpacing"><input type="text" class="removeHover" name="e-mail" id="emailReg" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled hidden"; ?>></li>
                         <?php if(isset($templateParams["checkE-mail"])): ?>
                             <li class="bottomSpacing"><p class="msgError"><?php echo "Devi inserire una e-mail valida!"; ?></p></li>
                         <?php endif; ?>
-                        <li class="bottomSpacing"><label class="fontBolder">Password</label></li>
+                        <li class="bottomSpacing"><label class="fontBolder" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?> >Password</label></li>
                         <li class="bottomSpacing"><div class="row">
                          <div class="col-12 col-md-4">
-                            <input type="password" name="password" id="passInput" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled"; ?>>   
+                            <input type="password" name="password" id="passInput" <?php if(isset($templateParams["datiAnagrafici"])) echo "disabled hidden"; ?>>   
                          </div>
                          <div class="col-5 col-md-3">
                             <label class="fontBolder" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>>Sicurezza password:</label>
@@ -96,7 +96,7 @@
                             </div>
                          </div>   
                         </div></li>
-                        <li class="bottomSpacing"><input type="checkbox" id="showPass" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>><label <?php if(isset($dati)) echo "hidden"; ?>>Mostra password</label></li>
+                        <li class="bottomSpacing"><input type="checkbox" id="showPass" <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>><label <?php if(isset($templateParams["datiAnagrafici"])) echo "hidden"; ?>>Mostra password</label></li>
                         <li><input id="insButton" type="submit" name="submit" value="<?php if(isset($templateParams["datiAnagrafici"])) echo "Modifica"; else echo "Registrati"; ?>" class="btn btn-primary regist"></li>
                     </ul>
                 </form>
