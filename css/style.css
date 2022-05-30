@@ -135,6 +135,10 @@ table {
     }
 }
 
+legend{
+    display: none;
+}
+
 @media (max-width: 768px) {
     .thumb-prodotto {
         width: 25%;

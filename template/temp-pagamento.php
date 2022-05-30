@@ -60,86 +60,89 @@
         </div>
     </div>
     <form class="my-3" action="processa-pagamento.php" method="POST">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-4 my-2">
-            <p class="h3">Scegliere l'indirizzo di spedizione:</p>
-                <?php foreach($templateParams["indirizzi"] as $indirizzo): ?>
-                    <div class="form-check" id="indirizzo-piano-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>">
-                        <input type="radio" class="form-check-input" name="indirizzo" id="indirizzo-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>" value="<?php echo $indirizzo;?>" required/>
-                        <label class="form-check-label" for="indirizzo-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>"><?php echo $indirizzo;?></label>
+        <fieldset>
+            <legend>Effettua pagamento</legend>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4 my-2">
+                <p class="h3">Scegliere l'indirizzo di spedizione:</p>
+                    <?php foreach($templateParams["indirizzi"] as $indirizzo): ?>
+                        <div class="form-check" id="indirizzo-piano-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>">
+                            <input type="radio" class="form-check-input" name="indirizzo" id="indirizzo-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>" value="<?php echo $indirizzo;?>" required/>
+                            <label class="form-check-label" for="indirizzo-<?php echo $indirizzo == INDIRIZZI[0] ? "1" : "0";?>"><?php echo $indirizzo;?></label>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="col-md-3 my-2" id="metodo">
+                    <p class="h3">Scegliere come pagare:</p>
+                    <?php foreach($templateParams["metodi_pagamento"] as $pagamento): ?>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="pagamento" id="pagamento-<?php echo $pagamento == PAGAMENTI[0] ? "contanti" : "carta";?>" value="<?php echo $pagamento;?>" required/>
+                            <label class="form-check-label" for="pagamento-<?php echo $pagamento == PAGAMENTI[0] ? "contanti" : "carta";?>"><?php echo $pagamento;?></label>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="col-md-4 my-2" id="carta">
+                    <div class="form-group my-1">
+                        <label class="form-label" for="num-carta">Numero di carta:</label>
+                        <input class="form-control" type="tel" id="num-carta" name="numero" placeholder="1234123412341234" pattern="[0-9]{16}">
                     </div>
-                <?php endforeach; ?>
-            </div>
-            <div class="col-md-3 my-2" id="metodo">
-                <p class="h3">Scegliere come pagare:</p>
-                <?php foreach($templateParams["metodi_pagamento"] as $pagamento): ?>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="pagamento" id="pagamento-<?php echo $pagamento == PAGAMENTI[0] ? "contanti" : "carta";?>" value="<?php echo $pagamento;?>" required/>
-                        <label class="form-check-label" for="pagamento-<?php echo $pagamento == PAGAMENTI[0] ? "contanti" : "carta";?>"><?php echo $pagamento;?></label>
+                    <div class="form-group my-1">
+                        <label class="form-label" for="data-carta">Data di scadenza:</label>
+                        <input class="form-control" type="date" id="data-carta" name="scadenza">
                     </div>
-                <?php endforeach; ?>
+                    <div class="form-group my-1">
+                        <label class="form-label" for="cvv-carta">CVV:</label>
+                        <input class="form-control" type="tel" id="cvv-carta" name="cvv" placeholder="123" pattern="[0-9]{3}">
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
             </div>
-            <div class="col-md-4 my-2" id="carta">
-                <div class="form-group my-1">
-                    <label class="form-label" for="num-carta">Numero di carta:</label>
-                    <input class="form-control" type="tel" id="num-carta" name="numero" placeholder="1234123412341234" pattern="[0-9]{16}">
-                </div>
-                <div class="form-group my-1">
-                    <label class="form-label" for="data-carta">Data di scadenza:</label>
-                    <input class="form-control" type="date" id="data-carta" name="scadenza">
-                </div>
-                <div class="form-group my-1">
-                    <label class="form-label" for="cvv-carta">CVV:</label>
-                    <input class="form-control" type="tel" id="cvv-carta" name="cvv" placeholder="123" pattern="[0-9]{3}">
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-        <div class="row my-5">
-            <div class="col-md-1"></div>
-            <div class="col-md-10 col-sm-12 table-responsive" id="prodotti">
-                <table class="table table-bordered table-striped border-dark">
-                    <thead>
-                        <tr>
-                            <th>Immagine</th>
-                            <th>Prodotto</th>
-                            <th>Quantità</th>
-                            <th>Prezzo</th>
-                        </tr>    
-                    </thead>
-                    <tbody>
-                        <?php foreach($templateParams["prodottiNelCarrello"] as $prodotto):?>
+            <div class="row my-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 col-sm-12 table-responsive" id="prodotti">
+                    <table class="table table-bordered table-striped border-dark">
+                        <thead>
                             <tr>
-                                <td class="text-center"><img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto" class="thumb-prodotto"/></td>
-                                <td><?php echo $prodotto["nomeProdotto"];?></td>
-                                <td><?php foreach($_SESSION["carrello"] as $prodotto2) {
+                                <th>Immagine</th>
+                                <th>Prodotto</th>
+                                <th>Quantità</th>
+                                <th>Prezzo</th>
+                            </tr>    
+                        </thead>
+                        <tbody>
+                            <?php foreach($templateParams["prodottiNelCarrello"] as $prodotto):?>
+                                <tr>
+                                    <td class="text-center"><img src="<?php echo UPLOAD_DIR.$prodotto["nomeImmagine"];?>" alt="Immagine prodotto" class="thumb-prodotto"/></td>
+                                    <td><?php echo $prodotto["nomeProdotto"];?></td>
+                                    <td><?php foreach($_SESSION["carrello"] as $prodotto2) {
+                                                if($prodotto["IDprodotto"] == $prodotto2["id"]) {
+                                                    echo $prodotto2["quantità"];
+                                                    }
+                                                }?></td>
+                                    <td class="prezzoProdotto"><?php foreach($_SESSION["carrello"] as $prodotto2) {
                                             if($prodotto["IDprodotto"] == $prodotto2["id"]) {
-                                                echo $prodotto2["quantità"];
-                                                }
-                                            }?></td>
-                                <td class="prezzoProdotto"><?php foreach($_SESSION["carrello"] as $prodotto2) {
-                                        if($prodotto["IDprodotto"] == $prodotto2["id"]) {
-                                            echo $prodotto["prezzoUnitario"]*$prodotto2["quantità"];
-                                        }
-                                    }?>€</td>
-                            </tr>
-                        <?php endforeach;?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row" id="finalRow">
-                <div class="col-md-1"></div>
-                <div class="col-6 col-md-5 my-2">
-                    <label class="h3 my-4" id="prezzoTotale">Prezzo totale: <?php echo $templateParams["prezzoTotale"]; ?>€</label>
+                                                echo $prodotto["prezzoUnitario"]*$prodotto2["quantità"];
+                                            }
+                                        }?>€</td>
+                                </tr>
+                            <?php endforeach;?>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-6 col-md-5 py-3">
-                    <button type="submit" id="paga" href="processa-pagamento.php" class="btn-lg btn-success">Procedi all'ordine</button>
+                <div class="row" id="finalRow">
+                    <div class="col-md-1"></div>
+                    <div class="col-6 col-md-5 my-2">
+                        <label class="h3 my-4" id="prezzoTotale">Prezzo totale: <?php echo $templateParams["prezzoTotale"]; ?>€</label>
+                    </div>
+                    <div class="col-6 col-md-5 py-3">
+                        <button type="submit" id="paga" href="processa-pagamento.php" class="btn-lg btn-success">Procedi all'ordine</button>
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="col-md-1"></div>
-        </div>
+        </fieldset>
     </form>
         <div class="row">
             <div class="col-12">
