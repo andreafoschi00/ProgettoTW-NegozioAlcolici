@@ -23,7 +23,20 @@ if(isset($_GET["action"]) && $_GET["action"] == "1"){
     require "template/temp-inserimento.php";
 
 } else if(isset($_GET["action"]) && $_GET["action"] == "3"){
-    $dbh->deleteProduct($_GET["id"]);
+    
+    if(count($dbh->checkProductInOrder($_GET["id"])) == 0){
+        $dbh->deleteProduct($_GET["id"]);
+    } else {
+        $id = $dbh->getIdSeller($_SESSION["email"]);
+
+        $templateParams["checkEliminazione"] = "Non è possibile cancellare questo articolo perchè appartiene a un ordine!";
+        $templateParams["tipoErrore"] = "cancellazione";
+        $templateParams["titolo"] = "Amministrazione - Negozio Alcolici";
+        $templateParams["nome"] = "temp-amministrazione.php";
+        $templateParams["articoli"] = $dbh->getSellerProducts($id[0]["ID"]);
+        require "template/temp-amministrazione.php";
+    }
+    
 
     $id = $dbh->getIdSeller($_SESSION["email"]);
 

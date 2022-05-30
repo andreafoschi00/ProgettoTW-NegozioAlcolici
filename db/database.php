@@ -487,5 +487,15 @@
              $stmt->bind_param('s', $nome);
              $stmt->execute();
         }
+
+        public function checkProductInOrder($id){
+            $stmt = $this->db->prepare("SELECT ID_prodotto 
+                                        FROM prodotto_in_ordine
+                                        WHERE ID_prodotto = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>

@@ -64,7 +64,7 @@
                 <p class="msgCorrect"><?php echo $templateParams["checkInserimento"]; ?></p>
                 <?php endif; ?>
                 <?php if(isset($templateParams["checkEliminazione"])): ?>    
-                <p class="msgCorrect"><?php echo $templateParams["checkEliminazione"]; ?></p>
+                <p class=<?php if(isset($templateParams["tipoErrore"]))echo "msgError"; else echo"msgCorrect";?>><?php echo $templateParams["checkEliminazione"]; ?></p>
                 <?php endif; ?>
                 <?php if(empty($templateParams["articoli"])): ?>
                     <label><?php echo "Non hai inserito nessun articolo."; ?></label>
