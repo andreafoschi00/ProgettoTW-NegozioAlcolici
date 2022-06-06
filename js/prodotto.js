@@ -19,11 +19,7 @@ $(document).ready(function() {
         $("#prezzo").text("Prezzo: "+(prezzo*quantitàSelezionata).toFixed(2)+"€");
         const id = parseInt($("#titleid").text().split(": ")[1]);
         $("#id-buffer").val(id);
-    });
-
-    $("#quantità").keypress(function(evt) {
-        evt.preventDefault();
-    });   
+    }); 
 
     if($("#presente").val() == "true") {
         $("#aggiunta").prop("disabled", true);
